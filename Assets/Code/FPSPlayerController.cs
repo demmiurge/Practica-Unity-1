@@ -42,8 +42,6 @@ public class FPSPlayerController : MonoBehaviour
     public float m_TimerBetweenHops = 1.0f;
     float m_TimerHopsRemaining;
 
-    // float m_LimitTimeToAir = 0.2f; // Hay que hacer un timer
-
     // Start is called before the first frame update
     void Start()
     {
@@ -62,12 +60,6 @@ public class FPSPlayerController : MonoBehaviour
             m_NormalMovementFOV = m_NormalMovementFOV == 0 ? m_GeneralCamera.fieldOfView : m_NormalMovementFOV;
             m_RunMovementFOV = m_NormalMovementFOV + m_SumRateRunningFOV;
         }
-
-        //if (m_Camera && m_NormalMovementFOV == 0 || m_RunMovementFOV == 0)
-        //{
-        //    m_NormalMovementFOV = m_NormalMovementFOV == 0 ? m_Camera.fieldOfView : m_NormalMovementFOV;
-        //    m_RunMovementFOV = m_NormalMovementFOV + m_SumRateRunningFOV;
-        //}
     }
 
     // Update is called once per frame

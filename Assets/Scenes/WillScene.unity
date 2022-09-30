@@ -567,6 +567,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
+      propertyPath: m_YawRotationSpeed
+      value: 720
+      objectReference: {fileID: 0}
+    - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
+      propertyPath: m_PitchRotationSpeed
+      value: 720
+      objectReference: {fileID: 0}
     - target: {fileID: 3302591788554941171, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
       propertyPath: m_Name
       value: Player

@@ -281,7 +281,7 @@ MonoBehaviour:
   m_TransitionStepperFOV: 0.1
   m_SumRateRunningFOV: 10
   m_JumpSpeed: 10
-  m_TimerBetweenHops: 6
+  m_TimerBetweenHops: 0.2
 --- !u!143 &3302591788554941170
 CharacterController:
   m_ObjectHideFlags: 0
@@ -406,9 +406,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4635458163168741164}
   - component: {fileID: 7836664547447228346}
-  - component: {fileID: 5615935661666456524}
   m_Layer: 0
-  m_Name: Camera
+  m_Name: Weapon Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -471,11 +470,3 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!81 &5615935661666456524
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8649963331642890392}
-  m_Enabled: 1
