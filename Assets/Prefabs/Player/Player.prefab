@@ -274,7 +274,8 @@ MonoBehaviour:
   m_DownKeyCode: 115
   m_JumpKeyCode: 32
   m_RunKeyCode: 304
-  m_Camera: {fileID: 3302591787179519088}
+  m_GeneralCamera: {fileID: 3302591787179519088}
+  m_WeaponCamera: {fileID: 7836664547447228346}
   m_NormalMovementFOV: 0
   m_RunMovementFOV: 0
   m_TransitionStepperFOV: 0.1

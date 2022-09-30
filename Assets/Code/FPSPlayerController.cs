@@ -29,7 +29,8 @@ public class FPSPlayerController : MonoBehaviour
     float m_VerticalSpeed = 0.0f;
     bool m_OnGround = true; // No matter this state
 
-    public Camera m_Camera;
+    public Camera m_GeneralCamera;
+    public Camera m_WeaponCamera;
     public float m_NormalMovementFOV;
     public float m_RunMovementFOV;
     public float m_TransitionStepperFOV = 0.1f;
@@ -54,11 +55,19 @@ public class FPSPlayerController : MonoBehaviour
 
     private void SetFOVIfParametersAreEmpty()
     {
-        if (m_Camera && m_NormalMovementFOV == 0 || m_RunMovementFOV == 0)
+        if (m_GeneralCamera && m_WeaponCamera && m_NormalMovementFOV == 0 || m_RunMovementFOV == 0)
         {
-            m_NormalMovementFOV = m_NormalMovementFOV == 0 ? m_Camera.fieldOfView : m_NormalMovementFOV;
+            m_WeaponCamera.fieldOfView = m_GeneralCamera.fieldOfView;
+
+            m_NormalMovementFOV = m_NormalMovementFOV == 0 ? m_GeneralCamera.fieldOfView : m_NormalMovementFOV;
             m_RunMovementFOV = m_NormalMovementFOV + m_SumRateRunningFOV;
         }
+
+        //if (m_Camera && m_NormalMovementFOV == 0 || m_RunMovementFOV == 0)
+        //{
+        //    m_NormalMovementFOV = m_NormalMovementFOV == 0 ? m_Camera.fieldOfView : m_NormalMovementFOV;
+        //    m_RunMovementFOV = m_NormalMovementFOV + m_SumRateRunningFOV;
+        //}
     }
 
     // Update is called once per frame
@@ -95,7 +104,8 @@ public class FPSPlayerController : MonoBehaviour
             l_FOV = m_RunMovementFOV;
         }
 
-        m_Camera.fieldOfView = Mathf.Lerp(m_Camera.fieldOfView, l_FOV, m_TransitionStepperFOV);
+        m_GeneralCamera.fieldOfView = Mathf.Lerp(m_GeneralCamera.fieldOfView, l_FOV, m_TransitionStepperFOV);
+        m_WeaponCamera.fieldOfView = Mathf.Lerp(m_WeaponCamera.fieldOfView, l_FOV, m_TransitionStepperFOV);
 
         l_Direction.Normalize();
 
