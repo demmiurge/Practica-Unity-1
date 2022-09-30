@@ -123,7 +123,7 @@ public class FPSPlayerController : MonoBehaviour
             m_TimerHopsRemaining -= Time.deltaTime;
         }
 
-        if ((l_CollisionFlags & CollisionFlags.Below) != 0 || m_TimerHopsRemaining <= 0)
+        if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_TimerHopsRemaining <= 0)
         {
             m_VerticalSpeed = 0.0f;
             m_OnGround = true;
