@@ -282,9 +282,9 @@ MonoBehaviour:
   m_SumRateRunningFOV: 10
   m_JumpSpeed: 10
   m_TimerBetweenHops: 0.2
-  m_MinTimeInTheAir: 1
-  m_MaxHeightSpeedTolerance: 1.25
-  m_MinHeightSpeedTolerance: -1.25
+  m_MinTimeInTheAir: 0.25
+  m_MaxHeightSpeedTolerance: 0.75
+  m_MinHeightSpeedTolerance: -0.75
 --- !u!143 &3302591788554941170
 CharacterController:
   m_ObjectHideFlags: 0

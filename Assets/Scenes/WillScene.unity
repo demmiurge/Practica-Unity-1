@@ -569,23 +569,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
       propertyPath: m_MinTimeInTheAir
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
-      propertyPath: m_YawRotationSpeed
-      value: 720
-      objectReference: {fileID: 0}
-    - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
-      propertyPath: m_PitchRotationSpeed
-      value: 720
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
       propertyPath: m_MaxHeightSpeedTolerance
-      value: 1.25
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3302591788554941169, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
       propertyPath: m_MinHeightSpeedTolerance
-      value: -1.25
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3302591788554941171, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
       propertyPath: m_Name

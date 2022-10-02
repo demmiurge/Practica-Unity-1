@@ -92,8 +92,6 @@ public class FPSPlayerController : MonoBehaviour
         if (Input.GetKeyDown(m_JumpKeyCode) && m_OnGround || Input.GetKeyDown(m_JumpKeyCode) && m_CanJump)
         {
             m_VerticalSpeed = m_JumpSpeed;
-            //m_TimerHopsRemaining = m_TimerBetweenHops;
-            m_ElapsedTimeInTheAir = m_MinTimeInTheAir;
             m_CanJump = false;
         }
 
@@ -130,21 +128,6 @@ public class FPSPlayerController : MonoBehaviour
             m_VerticalSpeed = 0.0f;
         }
 
-        //if (m_TimerHopsRemaining > 0)
-        //{
-        //    m_TimerHopsRemaining -= Time.deltaTime;
-        //}
-
-        //if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_TimerHopsRemaining <= 0)
-        //{
-        //    m_VerticalSpeed = 0.0f;
-        //    m_OnGround = true;
-        //}
-        //else
-        //{
-        //    m_OnGround = false;
-        //}
-
         if ((l_CollisionFlags & CollisionFlags.Below) != 0)
         {
             m_VerticalSpeed = 0.0f;
@@ -159,9 +142,11 @@ public class FPSPlayerController : MonoBehaviour
         if (m_ElapsedTimeInTheAir > 0)
         {
             m_ElapsedTimeInTheAir -= Time.deltaTime;
+            if (m_VerticalSpeed < m_MinHeightSpeedTolerance || m_VerticalSpeed > m_MaxHeightSpeedTolerance) m_ElapsedTimeInTheAir = 0.0f;
             if (m_VerticalSpeed > m_MinHeightSpeedTolerance && m_VerticalSpeed < m_MaxHeightSpeedTolerance) m_CanJump = true;
             else m_CanJump = false;
-        } else
+        } 
+        else
         {
             m_CanJump = false;
         }
