@@ -42,11 +42,19 @@ public class FPSPlayerController : MonoBehaviour
     public float m_TimerBetweenHops = 1.0f;
     float m_TimerHopsRemaining;
 
+    public float m_MinTimeInTheAir = 0.5f;
+    float m_ElapsedTimeInTheAir;
+    public float m_MaxHeightSpeedTolerance = 0.005f;
+    public float m_MinHeightSpeedTolerance = -0.005f;
+    bool m_CanJump;
+
     // Start is called before the first frame update
     void Start()
     {
         m_Yaw = transform.rotation.y;
         m_Pitch = m_PitchController.localRotation.x;
+
+        m_ElapsedTimeInTheAir = m_MinTimeInTheAir;
 
         SetFOVIfParametersAreEmpty();
     }
@@ -81,10 +89,12 @@ public class FPSPlayerController : MonoBehaviour
         if (Input.GetKey(m_LeftKeyCode)) l_Direction -= l_RightDirection;
 
         // Jump
-        if (Input.GetKeyDown(m_JumpKeyCode) && m_OnGround)
+        if (Input.GetKeyDown(m_JumpKeyCode) && m_OnGround || Input.GetKeyDown(m_JumpKeyCode) && m_CanJump)
         {
             m_VerticalSpeed = m_JumpSpeed;
-            m_TimerHopsRemaining = m_TimerBetweenHops;
+            //m_TimerHopsRemaining = m_TimerBetweenHops;
+            m_ElapsedTimeInTheAir = m_MinTimeInTheAir;
+            m_CanJump = false;
         }
 
         // FOB control
@@ -120,19 +130,40 @@ public class FPSPlayerController : MonoBehaviour
             m_VerticalSpeed = 0.0f;
         }
 
-        if (m_TimerHopsRemaining > 0)
-        {
-            m_TimerHopsRemaining -= Time.deltaTime;
-        }
+        //if (m_TimerHopsRemaining > 0)
+        //{
+        //    m_TimerHopsRemaining -= Time.deltaTime;
+        //}
 
-        if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_TimerHopsRemaining <= 0)
+        //if ((l_CollisionFlags & CollisionFlags.Below) != 0 && m_TimerHopsRemaining <= 0)
+        //{
+        //    m_VerticalSpeed = 0.0f;
+        //    m_OnGround = true;
+        //}
+        //else
+        //{
+        //    m_OnGround = false;
+        //}
+
+        if ((l_CollisionFlags & CollisionFlags.Below) != 0)
         {
             m_VerticalSpeed = 0.0f;
             m_OnGround = true;
+            m_ElapsedTimeInTheAir = m_MinTimeInTheAir;
         }
         else
         {
             m_OnGround = false;
+        }
+
+        if (m_ElapsedTimeInTheAir > 0)
+        {
+            m_ElapsedTimeInTheAir -= Time.deltaTime;
+            if (m_VerticalSpeed > m_MinHeightSpeedTolerance && m_VerticalSpeed < m_MaxHeightSpeedTolerance) m_CanJump = true;
+            else m_CanJump = false;
+        } else
+        {
+            m_CanJump = false;
         }
     }
 }

@@ -258,8 +258,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78d6c444903ebc94393bd7f1fd6eae3f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_YawRotationSpeed: 360
-  m_PitchRotationSpeed: 240
+  m_YawRotationSpeed: 720
+  m_PitchRotationSpeed: 720
   m_MinPitch: -75
   m_MaxPitch: 45
   m_PitchController: {fileID: 3302591788013809883}
@@ -282,6 +282,9 @@ MonoBehaviour:
   m_SumRateRunningFOV: 10
   m_JumpSpeed: 10
   m_TimerBetweenHops: 0.2
+  m_MinTimeInTheAir: 1
+  m_MaxHeightSpeedTolerance: 1.25
+  m_MinHeightSpeedTolerance: -1.25
 --- !u!143 &3302591788554941170
 CharacterController:
   m_ObjectHideFlags: 0
