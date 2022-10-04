@@ -36,6 +36,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     [Space(5)]
     [Header("Character controller and character speeds")]
     [Space(10)]
+    public CharacterController m_CharacterController;
     [Tooltip("Character standard speed")]
     public float m_Speed;
     [Tooltip("Standard speed multiplier, for when you sprint")]
@@ -79,12 +80,104 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_Yaw = transform.rotation.y;
+        m_Pitch = m_PitchController.localRotation.x;
+
+        m_ElapsedTimeInTheAir = m_MinTimeInTheAir;
+
+        SetFOVIfParametersAreEmpty();
+    }
+
+    private void SetFOVIfParametersAreEmpty()
+    {
+        if (m_GeneralCamera && m_WeaponCamera && m_NormalMovementFOV == 0 || m_RunMovementFOV == 0)
+        {
+            m_WeaponCamera.fieldOfView = m_GeneralCamera.fieldOfView;
+
+            m_NormalMovementFOV = m_NormalMovementFOV == 0 ? m_GeneralCamera.fieldOfView : m_NormalMovementFOV;
+            m_RunMovementFOV = m_NormalMovementFOV + m_SumRateRunningFOV;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        Vector3 l_RightDirection = transform.right;
+        Vector3 l_ForwardDirection = transform.forward;
+        Vector3 l_Direction = Vector3.zero;
+
+        float l_Speed = m_Speed;
+
+        float l_MouseX = Input.GetAxis("Mouse X"); // It is the old Unity input
+        float l_MouseY = Input.GetAxis("Mouse Y");
+
+        // Movement
+        if (Input.GetKey(m_UpKeyCode)) l_Direction = l_ForwardDirection;
+        if (Input.GetKey(m_DownKeyCode)) l_Direction = -l_ForwardDirection;
+        if (Input.GetKey(m_RightKeyCode)) l_Direction += l_RightDirection;
+        if (Input.GetKey(m_LeftKeyCode)) l_Direction -= l_RightDirection;
+
+        // Jump
+        if (Input.GetKeyDown(m_JumpKeyCode) && m_OnGround || Input.GetKeyDown(m_JumpKeyCode) && m_CanJump)
+        {
+            m_VerticalSpeed = m_JumpSpeed;
+            m_CanJump = false;
+        }
+
+        // FOB control
+        float l_FOV = m_NormalMovementFOV;
+
+        if (Input.GetKey(m_RunKeyCode))
+        {
+            l_Speed = m_Speed * m_FastSpeedMultiplier;
+            l_FOV = m_RunMovementFOV;
+        }
+
+        m_GeneralCamera.fieldOfView = Mathf.Lerp(m_GeneralCamera.fieldOfView, l_FOV, m_TransitionStepperFOV);
+        m_WeaponCamera.fieldOfView = Mathf.Lerp(m_WeaponCamera.fieldOfView, l_FOV, m_TransitionStepperFOV);
+
+        l_Direction.Normalize();
+
+        m_Yaw = m_Yaw + l_MouseX * m_YawRotationSpeed * Time.deltaTime * (m_UseYawInverted ? -1.0f : 1.0f);
+        m_Pitch = m_Pitch + l_MouseY * m_PitchRotationSpeed * Time.deltaTime * (m_UsePitchInverted ? -1.0f : 1.0f);
+        m_Pitch = Mathf.Clamp(m_Pitch, m_MinPitch, m_MaxPitch);
+
+        transform.rotation = Quaternion.Euler(0.0f, m_Yaw, 0.0f);
+        m_PitchController.localRotation = Quaternion.Euler(m_Pitch, 0.0f, 0.0f);
+
+        Vector3 l_Movement = l_Direction * l_Speed * Time.deltaTime;
+
+        m_VerticalSpeed = m_VerticalSpeed + Physics.gravity.y * Time.deltaTime;
+        l_Movement.y = m_VerticalSpeed * Time.deltaTime;
+
+        CollisionFlags l_CollisionFlags = m_CharacterController.Move(l_Movement);
+
+        if ((l_CollisionFlags & CollisionFlags.Above) != 0 && m_VerticalSpeed > 0.0f)
+        {
+            m_VerticalSpeed = 0.0f;
+        }
+
+        if ((l_CollisionFlags & CollisionFlags.Below) != 0)
+        {
+            m_VerticalSpeed = 0.0f;
+            m_OnGround = true;
+            m_ElapsedTimeInTheAir = m_MinTimeInTheAir;
+        }
+        else
+        {
+            m_OnGround = false;
+        }
+
+        if (m_ElapsedTimeInTheAir > 0)
+        {
+            m_ElapsedTimeInTheAir -= Time.deltaTime;
+            if (m_VerticalSpeed < m_MinHeightSpeedTolerance || m_VerticalSpeed > m_MaxHeightSpeedTolerance) m_ElapsedTimeInTheAir = 0.0f;
+            if (m_VerticalSpeed > m_MinHeightSpeedTolerance && m_VerticalSpeed < m_MaxHeightSpeedTolerance) m_CanJump = true;
+            else m_CanJump = false;
+        }
+        else
+        {
+            m_CanJump = false;
+        }
     }
 }
