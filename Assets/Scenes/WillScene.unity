@@ -151,7 +151,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 393019205}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.59, y: 1.57, z: 6.08}
+  m_LocalPosition: {x: -3.8, y: 1.57, z: 19.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2118573989}
@@ -169,7 +169,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ccd6a4eec48542bbf91ed1f9091af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CheckpointNumber: 4
+  m_CheckpointNumber: 3
 --- !u!135 &393019208
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -260,7 +260,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 771561765}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10.55, y: 1.57, z: 8.19}
+  m_LocalPosition: {x: -13.26, y: 1.57, z: 8.52}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2118573989}
@@ -278,7 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ccd6a4eec48542bbf91ed1f9091af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CheckpointNumber: 2
+  m_CheckpointNumber: 1
 --- !u!135 &771561768
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ccd6a4eec48542bbf91ed1f9091af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CheckpointNumber: 1
+  m_CheckpointNumber: 0
 --- !u!135 &944421098
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -649,7 +649,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1170585661}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 9.05, y: 1.57, z: 20.24}
+  m_LocalPosition: {x: -9.9, y: 1.57, z: 17.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2118573989}
@@ -667,7 +667,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ccd6a4eec48542bbf91ed1f9091af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CheckpointNumber: 3
+  m_CheckpointNumber: 2
 --- !u!135 &1170585664
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -851,7 +851,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1649102555}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.73, y: 1.57, z: 13.97}
+  m_LocalPosition: {x: 2.4, y: 1.57, z: 19.3}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2118573989}
@@ -869,7 +869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ccd6a4eec48542bbf91ed1f9091af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CheckpointNumber: 5
+  m_CheckpointNumber: 4
 --- !u!135 &1649102558
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1036,7 +1036,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1833162346}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -13.31, y: 1.57, z: 13.9}
+  m_LocalPosition: {x: 9.7, y: 1.57, z: 22.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2118573989}
@@ -1054,7 +1054,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a43ccd6a4eec48542bbf91ed1f9091af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CheckpointNumber: 6
+  m_CheckpointNumber: 5
 --- !u!135 &1833162349
 SphereCollider:
   m_ObjectHideFlags: 0
