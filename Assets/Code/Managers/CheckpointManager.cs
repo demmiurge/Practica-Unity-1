@@ -15,6 +15,9 @@ public class CheckpointManager : MonoBehaviour
 
         m_Checkpoints = m_Checkpoints.OrderBy(l_Checkpoint => l_Checkpoint.GetNumberOfCheckpoint()).ToArray();
 
+        m_LatestCheckpointReached = m_Checkpoints[0];
+        m_LatestCheckpointReached.ActiveIsChecked();
+
         //foreach (CheckpointController l_Checkpoint in m_Checkpoints)
         //{
         //    print("Checkpoint: " + l_Checkpoint.GetNumberOfCheckpoint());

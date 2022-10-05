@@ -318,6 +318,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3107909816040030027}
   - component: {fileID: 3107909816040030024}
+  - component: {fileID: 4267154413221667267}
   - component: {fileID: 3107909816040030026}
   m_Layer: 0
   m_Name: PlayerV1
@@ -380,6 +381,18 @@ MonoBehaviour:
   m_MinTimeInTheAir: 0.25
   m_MaxHeightSpeedTolerance: 0.75
   m_MinHeightSpeedTolerance: 1
+--- !u!114 &4267154413221667267
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107909816040030025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b707b793f94ba4f47abebe0efbf01609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!143 &3107909816040030026
 CharacterController:
   m_ObjectHideFlags: 0
