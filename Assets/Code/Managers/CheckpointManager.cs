@@ -25,8 +25,6 @@ public class CheckpointManager : MonoBehaviour
 
         m_LatestCheckpointReached = m_Checkpoints[0];
         m_LatestCheckpointReached.ActiveIsChecked();
-
-        Debug.Log("LENGHT: " + m_Checkpoints.Length);
     }
 
     private void OnEnable()

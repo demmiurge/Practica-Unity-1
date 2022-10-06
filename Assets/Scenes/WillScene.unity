@@ -416,9 +416,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_ChangeCheckpoint: 1
-  m_AutoRespawn: 1
-  m_NextCheckpointKeyCode: 258
+  m_AutoRespawn: 0
   m_LastCheckpointKeyCode: 257
+  m_NextCheckpointKeyCode: 258
 --- !u!1 &944421095
 GameObject:
   m_ObjectHideFlags: 0
