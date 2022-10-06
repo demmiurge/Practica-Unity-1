@@ -140,6 +140,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+#if UNITY_EDITOR
+        UpdateInputDebug();
+#endif
+
         Vector3 l_RightDirection = transform.right;
         Vector3 l_ForwardDirection = transform.forward;
         Vector3 l_Direction = Vector3.zero;
@@ -156,6 +161,10 @@ public class FPSPlayerControllerV1 : MonoBehaviour
             l_MouseY = 0.0f;
         }
 #endif
+
+        //Shoot
+        if (Input.GetMouseButtonDown(0))
+            Shoot();
 
         // Movement
         if (Input.GetKey(m_UpKeyCode)) l_Direction = l_ForwardDirection;
