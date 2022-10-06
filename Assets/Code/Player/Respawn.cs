@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Respawn : MonoBehaviour
 {
-    public GameObject spawnPoint;
-    public GameObject daddy;
-
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +14,7 @@ public class Respawn : MonoBehaviour
     {
         if (l_Collider.tag == "DeadZone")
         {
-            daddy.transform.localPosition = spawnPoint.transform.position;
+            transform.position = GameObject.FindObjectOfType<CheckpointManager>().GetLatestCheckpointReached().position;
         }
     }
 

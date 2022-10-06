@@ -8,6 +8,14 @@ public class CheckpointManager : MonoBehaviour
     private CheckpointController[] m_Checkpoints;
     private CheckpointController m_LatestCheckpointReached;
 
+    public Transform GetLatestCheckpointReached() => m_LatestCheckpointReached.transform;
+
+    public bool m_ChangeCheckpoint = false;
+    public bool m_AutoRespawn = false;
+    public KeyCode m_LastCheckpointKeyCode = KeyCode.Keypad1;
+    public KeyCode m_NextCheckpointKeyCode = KeyCode.Keypad2;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +26,7 @@ public class CheckpointManager : MonoBehaviour
         m_LatestCheckpointReached = m_Checkpoints[0];
         m_LatestCheckpointReached.ActiveIsChecked();
 
-        //foreach (CheckpointController l_Checkpoint in m_Checkpoints)
-        //{
-        //    print("Checkpoint: " + l_Checkpoint.GetNumberOfCheckpoint());
-        //}
+        Debug.Log("LENGHT: " + m_Checkpoints.Length);
     }
 
     private void OnEnable()
@@ -47,6 +52,24 @@ public class CheckpointManager : MonoBehaviour
             Transform l_PlayerPosition = GameObject.FindWithTag("Player").transform;
             l_PlayerPosition.position = m_LatestCheckpointReached.transform.position;
             ActivatePreviousPositions();
+        }
+
+        if (Input.GetKeyDown(m_LastCheckpointKeyCode) && m_ChangeCheckpoint) ChangeCurrentCheckpoint(-1);
+        if (Input.GetKeyDown(m_NextCheckpointKeyCode) && m_ChangeCheckpoint) ChangeCurrentCheckpoint(1);
+    }
+
+    private void ChangeCurrentCheckpoint(int index)
+    {
+        int l_Index = m_LatestCheckpointReached.GetNumberOfCheckpoint() + index;
+
+        if (l_Index < 0) l_Index = 0;
+        if (l_Index > m_Checkpoints.Length - 1) l_Index = m_Checkpoints.Length - 1;
+
+        if (m_Checkpoints[l_Index].GetStatusCheck()) {
+            m_LatestCheckpointReached = m_Checkpoints[l_Index];
+
+            if (m_AutoRespawn)
+                FindObjectOfType<FPSPlayerControllerV1>().transform.position = m_LatestCheckpointReached.transform.position;
         }
     }
 

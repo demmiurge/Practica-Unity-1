@@ -415,6 +415,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b08e3d1628188489c5179e14e69375, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_ChangeCheckpoint: 1
+  m_AutoRespawn: 1
+  m_NextCheckpointKeyCode: 258
+  m_LastCheckpointKeyCode: 257
 --- !u!1 &944421095
 GameObject:
   m_ObjectHideFlags: 0

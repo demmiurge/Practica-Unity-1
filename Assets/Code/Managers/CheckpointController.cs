@@ -17,6 +17,7 @@ public class CheckpointController : MonoBehaviour
 
     public int GetNumberOfCheckpoint() => m_CheckpointNumber;
     public void ActiveIsChecked() => m_IsChecked = true;
+    public bool GetStatusCheck() => m_IsChecked;
 
     // Start is called before the first frame update
     void Start()
