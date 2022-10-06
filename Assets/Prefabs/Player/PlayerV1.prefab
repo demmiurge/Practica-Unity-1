@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 3107909814898888877}
   m_Layer: 0
   m_Name: MainCamera
-  m_TagString: Untagged
+  m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -156,7 +156,7 @@ Camera:
   field of view: 50
   orthographic: 0
   orthographic size: 5
-  m_Depth: 0
+  m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 55
@@ -207,7 +207,7 @@ Transform:
   m_GameObject: {fileID: 3107909815254107715}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
   m_LocalPosition: {x: 0.5, y: -0.5, z: 0.75}
-  m_LocalScale: {x: 0.5, y: 0.7500001, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.75, z: 0.5}
   m_Children: []
   m_Father: {fileID: 3107909815981136802}
   m_RootOrder: 1
@@ -372,6 +372,8 @@ MonoBehaviour:
   m_DownKeyCode: 115
   m_JumpKeyCode: 32
   m_RunKeyCode: 304
+  m_DebugLockAngleKeyCode: 105
+  m_DebugLockKeyCode: 111
   m_GeneralCamera: {fileID: 3107909814898888876}
   m_WeaponCamera: {fileID: 3107909816132282332}
   m_NormalMovementFOV: 0
@@ -381,6 +383,15 @@ MonoBehaviour:
   m_MinTimeInTheAir: 0.25
   m_MaxHeightSpeedTolerance: 0.75
   m_MinHeightSpeedTolerance: 1
+  m_MaxShootDistance: 50
+  m_ShootLayerMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_Prefab: {fileID: 0}
+  m_Animation: {fileID: 0}
+  m_IdleAnimationClip: {fileID: 0}
+  m_ShootAnimationClip: {fileID: 0}
+  m_ReloadAnimationClip: {fileID: 0}
 --- !u!114 &4267154413221667267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,6 +404,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b707b793f94ba4f47abebe0efbf01609, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnPoint: {fileID: 0}
+  daddy: {fileID: 0}
 --- !u!143 &3107909816040030026
 CharacterController:
   m_ObjectHideFlags: 0
@@ -465,9 +478,9 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.3
+  near clip plane: 0.01
   far clip plane: 1000
-  field of view: 50
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: 0
