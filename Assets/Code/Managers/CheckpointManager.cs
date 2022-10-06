@@ -42,7 +42,7 @@ public class CheckpointManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R) && m_LatestCheckpointReached)
+        if (Input.GetKeyDown(KeyCode.R) && m_LatestCheckpointReached)
         {
             Transform l_PlayerPosition = GameObject.FindWithTag("Player").transform;
             l_PlayerPosition.position = m_LatestCheckpointReached.transform.position;
