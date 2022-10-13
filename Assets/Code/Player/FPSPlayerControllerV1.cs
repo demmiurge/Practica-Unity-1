@@ -100,6 +100,9 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        m_Life = GameController.GetGameController().GetPlayerLife();
+        GameController.GetGameController().SetPlayer(this);
+
         m_Yaw = transform.rotation.y;
         m_Pitch = m_PitchController.localRotation.x;
 
@@ -269,5 +272,23 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     {
         m_Animation.CrossFade(m_ShootAnimationClip.name, 0.1f);
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
+    }
+
+    public float GetLife()
+    {
+        return m_Life;
+    }
+
+    public void AddLife(float Life)
+    {
+        m_Life = Mathf.Clamp(m_Life + Life, 0.0f, 1.0f);
+    }
+
+    public void OnTriggerEnter(Collider Other)
+    {
+        if (Other.tag == "Item")
+        {
+            Other.GetComponent<Item>().Pick(this);
+        }
     }
 }

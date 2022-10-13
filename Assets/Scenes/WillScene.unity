@@ -1430,6 +1430,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3107909814898888875, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3107909814898888876, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_Depth
       value: -1
@@ -1506,6 +1510,14 @@ PrefabInstance:
       propertyPath: spawnPoint
       value: 
       objectReference: {fileID: 771561765}
+    - target: {fileID: 6272208457803680975, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
+      propertyPath: m_CameraType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8432251352470763655, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
+      propertyPath: m_CameraType
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
 --- !u!1001 &3302591788573105963

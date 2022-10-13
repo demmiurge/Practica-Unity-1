@@ -4,6 +4,7 @@ public class GameController : MonoBehaviour
 {
     static GameController m_GameController = null;
     float m_PlayerLife = 1.0f;
+    FPSPlayerControllerV1 m_Player;
 
     void Start()
     {
@@ -19,6 +20,16 @@ public class GameController : MonoBehaviour
         return m_GameController;
     }
 
+    public FPSPlayerControllerV1 GetPlayer()
+    {
+        return m_Player;
+    }
+
+    public void SetPlayer(FPSPlayerControllerV1 Player)
+    {
+        m_Player = Player;
+    }
+
     public static void DestroySingleton()
     {
         if(m_GameController != null)
@@ -31,7 +42,7 @@ public class GameController : MonoBehaviour
         m_PlayerLife = PlayerLife;
     }
 
-    public float GetLife()
+    public float GetPlayerLife()
     {
         return m_PlayerLife;
     }
