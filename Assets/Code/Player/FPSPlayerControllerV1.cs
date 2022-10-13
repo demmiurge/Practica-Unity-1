@@ -85,6 +85,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     [Space(1f)]
     public float m_MaxShootDistance = 50.0f;
     public LayerMask m_ShootLayerMask;
+    public GameObject m_Bullet;
     public GameObject m_Prefab;
 
     [Header("Animations")]
@@ -243,7 +244,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     void Shoot()
     {
-        SetShootWeaponAnimation();
+        //SetShootWeaponAnimation();
         Ray l_Ray = m_WeaponCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         RaycastHit l_RaycastHit;
         if (Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootLayerMask.value))
@@ -255,8 +256,9 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     void CreateShootHitParticles(Collider _collider, Vector3 Position, Vector3 Normal)
     {
         Debug.DrawRay(Position, Normal * 5.0f, Color.red, 2.0f);
-        GameObject.Instantiate(m_Prefab, Position, Quaternion.LookRotation(Normal));
+        m_Bullet = Instantiate(m_Prefab, Position, Quaternion.LookRotation(Normal)) as GameObject;
     }
+
 
     void SetIdleWeaponAnimation()
     {
