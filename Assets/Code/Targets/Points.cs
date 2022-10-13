@@ -5,6 +5,7 @@ using UnityEngine;
 public class Points : MonoBehaviour
 {
     public int m_Value = 50;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +21,6 @@ public class Points : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         ScoreManager.instance.m_Score += m_Value;
+        other.transform.SetParent(this.transform, true);
     }
 }
