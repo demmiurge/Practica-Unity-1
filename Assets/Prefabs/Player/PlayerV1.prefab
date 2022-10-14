@@ -115,7 +115,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3107909814898888874
 Transform:
   m_ObjectHideFlags: 0
@@ -197,7 +197,8 @@ MonoBehaviour:
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
   m_CameraType: 0
-  m_Cameras: []
+  m_Cameras:
+  - {fileID: 3107909816132282332}
   m_RendererIndex: -1
   m_VolumeLayerMask:
     serializedVersion: 2
@@ -387,6 +388,7 @@ GameObject:
   - component: {fileID: 3107909816040030024}
   - component: {fileID: 4267154413221667267}
   - component: {fileID: 3107909816040030026}
+  - component: {fileID: 1145971499}
   m_Layer: 0
   m_Name: PlayerV1
   m_TagString: Untagged
@@ -441,7 +443,7 @@ MonoBehaviour:
   m_RunKeyCode: 304
   m_DebugLockAngleKeyCode: 105
   m_DebugLockKeyCode: 111
-  m_GeneralCamera: {fileID: 3107909814898888876}
+  m_GeneralCamera: {fileID: 7033658126661741783}
   m_WeaponCamera: {fileID: 3107909816132282332}
   m_NormalMovementFOV: 0
   m_RunMovementFOV: 0
@@ -454,6 +456,7 @@ MonoBehaviour:
   m_ShootLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
+  m_Bullet: {fileID: 0}
   m_Prefab: {fileID: 6357105730803446007, guid: a3b59140a3cd7da4c99e0d79b3cfedd3, type: 3}
   m_Animation: {fileID: 0}
   m_IdleAnimationClip: {fileID: 0}
@@ -489,6 +492,21 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!111 &1145971499
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107909816040030025}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &3107909816132282331
 GameObject:
   m_ObjectHideFlags: 0
@@ -580,7 +598,7 @@ MonoBehaviour:
   m_RenderShadows: 1
   m_RequiresDepthTextureOption: 2
   m_RequiresOpaqueTextureOption: 2
-  m_CameraType: 0
+  m_CameraType: 1
   m_Cameras: []
   m_RendererIndex: -1
   m_VolumeLayerMask:
