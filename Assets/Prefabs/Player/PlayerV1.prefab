@@ -238,6 +238,8 @@ GameObject:
   - component: {fileID: 4267154413221667267}
   - component: {fileID: 3107909816040030026}
   - component: {fileID: 1145971499}
+  - component: {fileID: 327246621}
+  - component: {fileID: 327246622}
   m_Layer: 7
   m_Name: PlayerV1
   m_TagString: Player
@@ -356,6 +358,32 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &327246621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107909816040030025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3497c5bfbf4ddd44bbed46d48e63fd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollectibleItem: []
+--- !u!114 &327246622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107909816040030025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e672b5d1b85ac2848b86d7f2950b8da1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Inventory: {fileID: 327246621}
 --- !u!1 &3107909816132282331
 GameObject:
   m_ObjectHideFlags: 0
