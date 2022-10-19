@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4241147409563106346}
   - component: {fileID: 4241147409562009322}
   - component: {fileID: 8464908682851749107}
+  - component: {fileID: 4768759886673854398}
   m_Layer: 0
   m_Name: LPW_Tree_C1_9m_01
   m_TagString: Untagged
@@ -96,3 +97,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 80d15eccca9181a4386c007b45199982, type: 3}
+--- !u!136 &4768759886673854398
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4241147409563934762}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.4839163
+  m_Height: 9.085401
+  m_Direction: 1
+  m_Center: {x: -0.04658863, y: 4.351502, z: -0.060741335}
