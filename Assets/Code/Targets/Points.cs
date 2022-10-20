@@ -20,7 +20,10 @@ public class Points : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        ScoreManager.instance.m_Score += m_Value;
-        other.transform.SetParent(this.transform, true);
+        if (other.tag == "Bullet")
+        {
+            ScoreManager.instance.m_Score += m_Value;
+            other.transform.SetParent(this.transform, true);
+        }
     }
 }

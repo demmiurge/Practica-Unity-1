@@ -8,6 +8,7 @@ TagManager:
   - Target
   - Enemy
   - Collectable
+  - Bullet
   layers:
   - Default
   - TransparentFX

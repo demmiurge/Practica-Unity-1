@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2758058731592652679}
   m_Layer: 0
   m_Name: BulletHole
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 4778712614736777032}
   m_Layer: 0
   m_Name: Decal
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
