@@ -9,6 +9,7 @@ TagManager:
   - Enemy
   - Collectable
   - Bullet
+  - Platform
   layers:
   - Default
   - TransparentFX
