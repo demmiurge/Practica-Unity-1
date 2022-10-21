@@ -46,5 +46,10 @@ public class GameController : MonoBehaviour
     {
         return m_PlayerLife;
     }
+
+    public void RestartGame()
+    {
+        m_Player.RestartGame();
+    }
 }
 

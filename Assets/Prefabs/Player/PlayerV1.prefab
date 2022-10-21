@@ -296,8 +296,8 @@ MonoBehaviour:
   m_DebugLockKeyCode: 111
   m_GeneralCamera: {fileID: 7033658126661741783}
   m_WeaponCamera: {fileID: 3107909816132282332}
-  m_NormalMovementFOV: 0
-  m_RunMovementFOV: 0
+  m_NormalMovementFOV: 60
+  m_RunMovementFOV: 80
   m_TransitionStepperFOV: 0.1
   m_SumRateRunningFOV: 10
   m_MinTimeInTheAir: 0.25
@@ -309,6 +309,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_Bullet: {fileID: 0}
   m_Prefab: {fileID: 6357105730803446007, guid: a3b59140a3cd7da4c99e0d79b3cfedd3, type: 3}
+  m_MaxAmmo: 0
   m_Animation: {fileID: 0}
   m_IdleAnimationClip: {fileID: 0}
   m_ShootAnimationClip: {fileID: 0}

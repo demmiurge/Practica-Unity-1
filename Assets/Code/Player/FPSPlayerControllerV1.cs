@@ -97,7 +97,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public AnimationClip m_ReloadAnimationClip;
 
     float m_Life = 5.0f;
-
+    Vector3 m_InitialPosition;
+    Quaternion m_InitialRotation;
 
     // Start is called before the first frame update
     void Start()
@@ -115,6 +116,9 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
         SetFOVIfParametersAreEmpty();
         m_CurrentAmmo = m_MaxAmmo;
+
+        m_InitialPosition = transform.position;
+        m_InitialRotation = transform.rotation;
     }
 
     private void SetFOVIfParametersAreEmpty()
@@ -317,5 +321,26 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         {
             Other.GetComponent<Item>().Pick(this);
         }
+        if(Other.tag == "DeadZone")
+        {
+            Kill();
+        }
+    }
+
+    void Kill()
+    {
+        m_Life = 0;
+        GameController.GetGameController().RestartGame();
+        Debug.Log("dead");
+    }
+
+    public void RestartGame()
+    {
+        m_Life = 0;
+        m_CharacterController.enabled = false;
+        transform.position = m_InitialPosition;
+        transform.rotation = m_InitialRotation;
+        m_CharacterController.enabled = true;
+        Debug.Log("Alive");
     }
 }
