@@ -87,6 +87,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public LayerMask m_ShootLayerMask;
     public GameObject m_Bullet;
     public GameObject m_Prefab;
+    public int m_MaxAmmo;
+    private int m_CurrentAmmo;
 
     [Header("Animations")]
     public Animation m_Animation;
@@ -112,6 +114,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_AimLocked = Cursor.lockState == CursorLockMode.Locked;
 
         SetFOVIfParametersAreEmpty();
+        m_CurrentAmmo = m_MaxAmmo;
     }
 
     private void SetFOVIfParametersAreEmpty()
@@ -242,7 +245,15 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     bool CanShoot()
     {
-        return true;
+        if (m_CurrentAmmo > 0)
+        {
+            return true;
+        }
+        else
+        {
+            Recharge();
+            return false;
+        }
     }
 
     void Shoot()
@@ -250,9 +261,21 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         //SetShootWeaponAnimation();
         Ray l_Ray = m_WeaponCamera.ViewportPointToRay(new Vector3(0.5f, 0.5f));
         RaycastHit l_RaycastHit;
-        if (Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootLayerMask.value))
+        if (CanShoot())
         {
-            CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
+            if (Physics.Raycast(l_Ray, out l_RaycastHit, m_MaxShootDistance, m_ShootLayerMask.value))
+            {
+                CreateShootHitParticles(l_RaycastHit.collider, l_RaycastHit.point, l_RaycastHit.normal);
+                m_CurrentAmmo -= 1;
+            }
+        }
+    }
+
+    void Recharge()
+    {
+        if(m_CurrentAmmo <= 0)
+        {
+            m_CurrentAmmo = m_MaxAmmo;
         }
     }
 
@@ -262,6 +285,10 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_Bullet = Instantiate(m_Prefab, Position, Quaternion.LookRotation(Normal)) as GameObject;
     }
 
+    public int GetAmmo()
+    {
+        return m_CurrentAmmo;
+    }
 
     void SetIdleWeaponAnimation()
     {
