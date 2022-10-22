@@ -121,6 +121,12 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_InitialRotation = transform.rotation;
     }
 
+    public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
+    {
+        m_InitialPosition = Position;
+        m_InitialRotation = Rotation;
+    }
+
     private void SetFOVIfParametersAreEmpty()
     {
         if (m_GeneralCamera && m_WeaponCamera && m_NormalMovementFOV == 0 || m_RunMovementFOV == 0)
@@ -321,9 +327,13 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         {
             Other.GetComponent<Item>().Pick(this);
         }
-        if(Other.tag == "DeadZone")
+        if (Other.tag == "DeadZone")
         {
             Kill();
+        }
+        if (Other.tag == "Respawn")
+        {
+            SetNewRespawnPosition(Other.transform.position, Other.transform.rotation);
         }
     }
 
