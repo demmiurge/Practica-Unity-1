@@ -88,6 +88,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public GameObject m_Bullet;
     public GameObject m_Prefab;
     public int m_MaxAmmo;
+    public float m_MaxShield;
+    private float m_CurrentShield;
     private int m_CurrentAmmo;
 
     [Header("Animations")]
@@ -116,6 +118,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
         SetFOVIfParametersAreEmpty();
         m_CurrentAmmo = m_MaxAmmo;
+        m_CurrentShield = m_MaxShield;
 
         m_InitialPosition = transform.position;
         m_InitialRotation = transform.rotation;
@@ -300,6 +303,32 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         return m_CurrentAmmo;
     }
 
+    public void AddAmmo(int Ammo)
+    {
+        if (m_CurrentAmmo < 100)
+        {
+            m_CurrentAmmo += Ammo;
+            if(m_CurrentAmmo > 100)
+            {
+                m_CurrentAmmo = m_MaxAmmo;
+            }
+        }
+    }
+
+    public float GetShield()
+    {
+        return m_CurrentShield;
+    }
+
+    public void AddShield(float Shield)
+    {
+        if(m_CurrentShield < 100)
+        {
+            m_CurrentShield += Shield;
+            if(m_CurrentShield > 100) { m_CurrentShield = m_MaxShield; }
+        }
+    }
+
     void SetIdleWeaponAnimation()
     {
         m_Animation.CrossFade(m_IdleAnimationClip.name);
@@ -352,5 +381,16 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         transform.rotation = m_InitialRotation;
         m_CharacterController.enabled = true;
         Debug.Log("Alive");
+    }
+
+    void RecieveDamage(float Damage)
+    {
+        if (m_CurrentShield >= 0)
+        {
+            Mathf.Clamp(m_Life - Damage * 0.25f, 0.0f, 1.0f);
+            Mathf.Clamp(m_CurrentShield - Damage * 0.75f, 0.0f, 1.0f);
+        }
+        else
+            Mathf.Clamp(m_Life - Damage , 0.0f, 1.0f);
     }
 }

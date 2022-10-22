@@ -13,6 +13,8 @@ public class PlayerManager : MonoBehaviour
     TMP_Text scoreText;
     [SerializeField]
     TMP_Text ammoText;
+    [SerializeField]
+    TMP_Text shieldText;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,5 +26,6 @@ public class PlayerManager : MonoBehaviour
     {
         scoreText.text = "Points: " + m_Score.ToString();
         ammoText.text = "Ammo: " + player.GetAmmo().ToString() + "/" + player.m_MaxAmmo.ToString();
+        shieldText.text = "Shield: " + player.GetShield().ToString();
     }
 }
