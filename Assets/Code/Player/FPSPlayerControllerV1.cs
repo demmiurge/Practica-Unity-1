@@ -367,6 +367,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         if (Other.tag == "Item")
         {
             Other.GetComponent<Item>().Pick(this);
+            Debug.Log("item");
         }
         if (Other.tag == "DeadZone")
         {
