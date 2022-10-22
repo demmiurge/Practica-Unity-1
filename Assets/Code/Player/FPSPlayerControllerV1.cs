@@ -55,6 +55,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public KeyCode m_RunKeyCode = KeyCode.LeftShift;
     public KeyCode m_DebugLockAngleKeyCode = KeyCode.I;
     public KeyCode m_DebugLockKeyCode = KeyCode.O;
+    public KeyCode m_ShootingGalleryCode = KeyCode.KeypadEnter;
     bool m_AngleLocked = false;
     bool m_AimLocked = true;
 
@@ -91,6 +92,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public float m_MaxShield;
     private float m_CurrentShield;
     private int m_CurrentAmmo;
+    private PoolOfElements m_PoolOfElements;
 
     [Header("Animations")]
     public Animation m_Animation;
@@ -122,6 +124,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
         m_InitialPosition = transform.position;
         m_InitialRotation = transform.rotation;
+
+        m_PoolOfElements = new PoolOfElements(25, m_Prefab);
     }
 
     public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
@@ -197,6 +201,12 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         {
             m_VerticalSpeed = m_JumpSpeed;
             m_CanJump = false;
+        }
+
+        //ShootingGallery
+        if(Input.GetKeyDown(m_ShootingGalleryCode))
+        {
+            ShootingGallery.FindObjectOfType<ShootingGallery>().ActivateShootingGallery();
         }
 
         // FOV control
@@ -294,8 +304,13 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     void CreateShootHitParticles(Collider _collider, Vector3 Position, Vector3 Normal)
     {
-        Debug.DrawRay(Position, Normal * 5.0f, Color.red, 2.0f);
+        //Debug.DrawRay(Position, Normal * 5.0f, Color.red, 2.0f);
         m_Bullet = Instantiate(m_Prefab, Position, Quaternion.LookRotation(Normal)) as GameObject;
+
+        /*GameObject l_Decal = m_PoolOfElements.GetNextElement();
+        l_Decal.SetActive(true);
+        l_Decal.transform.position = Position;
+        l_Decal.transform.rotation = Quaternion.LookRotation(Normal);*/
     }
 
     public int GetAmmo()
@@ -308,10 +323,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         if (m_CurrentAmmo < 100)
         {
             m_CurrentAmmo += Ammo;
-            if(m_CurrentAmmo > 100)
-            {
-                m_CurrentAmmo = m_MaxAmmo;
-            }
+            if(m_CurrentAmmo > 100) { m_CurrentAmmo = m_MaxAmmo; }
         }
     }
 
