@@ -24,7 +24,7 @@ public class PlayerManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Points: " + m_Score.ToString();
+        scoreText.text = "Score: " + m_Score.ToString();
         ammoText.text = "Ammo: " + player.GetAmmo().ToString() + "/" + player.m_MaxAmmo.ToString();
         shieldText.text = "Shield: " + player.GetShield().ToString();
     }
