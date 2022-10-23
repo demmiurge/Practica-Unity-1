@@ -126,7 +126,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_InitialPosition = transform.position;
         m_InitialRotation = transform.rotation;
 
-        m_PoolOfElements = new PoolOfElements(25, m_Prefab);
+        //m_PoolOfElements = new PoolOfElements(25, m_Prefab);
     }
 
     public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
@@ -320,6 +320,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
             l_Decal.transform.position = Position;
             l_Decal.transform.rotation = Quaternion.LookRotation(Normal);
             l_Decal.SetActive(true);
+            StartCoroutine(DestroyOnTime(l_Decal)); 
         }
     }
 
@@ -415,5 +416,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         }
         else
             Mathf.Clamp(m_Life - Damage , 0.0f, 1.0f);
+    }
+
+    IEnumerator DestroyOnTime(GameObject Decal)
+    {
+        yield return new WaitForSeconds(3);
+        Decal.SetActive(false);
     }
 }
