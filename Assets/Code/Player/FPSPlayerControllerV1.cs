@@ -422,5 +422,6 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     {
         yield return new WaitForSeconds(3);
         Decal.SetActive(false);
+        Decal.transform.parent = null;
     }
 }

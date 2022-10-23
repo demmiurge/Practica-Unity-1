@@ -23,7 +23,7 @@ public class Points : MonoBehaviour
         if (other.tag == "Bullet")
         {
             PlayerManager.instance.m_Score += m_Value;
-            other.transform.SetParent(this.transform, true);
+            other.transform.parent = transform;
         }
     }
 }
