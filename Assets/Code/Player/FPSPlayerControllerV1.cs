@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class FPSPlayerControllerV1 : MonoBehaviour
 {
@@ -305,12 +306,21 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     void CreateShootHitParticles(Collider _collider, Vector3 Position, Vector3 Normal)
     {
         //Debug.DrawRay(Position, Normal * 5.0f, Color.red, 2.0f);
-        m_Bullet = Instantiate(m_Prefab, Position, Quaternion.LookRotation(Normal)) as GameObject;
+        //m_Bullet = Instantiate(m_Prefab, Position, Quaternion.LookRotation(Normal)) as GameObject;
 
-        /*GameObject l_Decal = m_PoolOfElements.GetNextElement();
-        l_Decal.SetActive(true);
-        l_Decal.transform.position = Position;
-        l_Decal.transform.rotation = Quaternion.LookRotation(Normal);*/
+        //GameObject l_Decal = m_PoolOfElements.GetNextElement();
+        //Debug.Log("QUIEN ERE? " + l_Decal.name);
+        //l_Decal.SetActive(true);
+        //l_Decal.transform.position = Position;
+        //l_Decal.transform.rotation = Quaternion.LookRotation(Normal);
+
+        GameObject l_Decal = ObjectPool.m_SharedInstance.GetPooledObject();
+        if (l_Decal != null)
+        {
+            l_Decal.transform.position = Position;
+            l_Decal.transform.rotation = Quaternion.LookRotation(Normal);
+            l_Decal.SetActive(true);
+        }
     }
 
     public int GetAmmo()
