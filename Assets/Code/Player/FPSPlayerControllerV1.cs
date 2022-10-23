@@ -420,7 +420,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     IEnumerator DestroyOnTime(GameObject Decal)
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(2);
         Decal.SetActive(false);
         Decal.transform.parent = null;
     }
