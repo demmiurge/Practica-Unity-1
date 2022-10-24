@@ -235,7 +235,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3107909816040030027}
   - component: {fileID: 3107909816040030024}
-  - component: {fileID: 4267154413221667267}
   - component: {fileID: 3107909816040030026}
   - component: {fileID: 1145971499}
   - component: {fileID: 327246621}
@@ -297,6 +296,7 @@ MonoBehaviour:
   m_RunKeyCode: 304
   m_DebugLockAngleKeyCode: 105
   m_DebugLockKeyCode: 111
+  m_ShootingGalleryCode: 271
   m_GeneralCamera: {fileID: 7033658126661741783}
   m_WeaponCamera: {fileID: 3107909816132282332}
   m_NormalMovementFOV: 60
@@ -313,22 +313,11 @@ MonoBehaviour:
   m_Bullet: {fileID: 0}
   m_Prefab: {fileID: 6357105730803446007, guid: a3b59140a3cd7da4c99e0d79b3cfedd3, type: 3}
   m_MaxAmmo: 0
+  m_MaxShield: 0
   m_Animation: {fileID: 0}
   m_IdleAnimationClip: {fileID: 0}
   m_ShootAnimationClip: {fileID: 0}
   m_ReloadAnimationClip: {fileID: 0}
---- !u!114 &4267154413221667267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3107909816040030025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b707b793f94ba4f47abebe0efbf01609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!143 &3107909816040030026
 CharacterController:
   m_ObjectHideFlags: 0
@@ -374,7 +363,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3497c5bfbf4ddd44bbed46d48e63fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CollectibleItem: []
+  m_CollectibleItem:
+  - {fileID: 11400000, guid: 44790c7300285d0418a5dfe1cf7342bc, type: 2}
 --- !u!114 &327246622
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,8 +389,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 0.25, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0.75, y: 2, z: 0.75}
+  m_Center: {x: 0, y: 0.75, z: 0}
 --- !u!114 &937513161
 MonoBehaviour:
   m_ObjectHideFlags: 0
