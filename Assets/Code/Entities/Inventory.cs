@@ -34,19 +34,7 @@ public class Inventory : MonoBehaviour
 
     public bool CheckItemExistsByNameAndQuantity(string ItemName, int ItemAmount)
     {
-        Debug.Log("TENGO? " + m_CollectibleItem.Count()); 
-
-        foreach (var lItem in m_CollectibleItem)
-        {
-            if (ItemName == lItem.m_ItemName && ItemAmount <= lItem.m_Amount)
-            {
-                Debug.Log("Name " + lItem.m_ItemName);
-                Debug.Log("AMOUNT " + lItem.m_Amount);
-                return true;
-            }
-        }
-
-        return false;
+        return m_CollectibleItem.Any(lItem => ItemName == lItem.m_ItemName && ItemAmount <= lItem.m_Amount);
     }
 
     public void ConsumeItems(string ItemName, int ItemAmount)
@@ -64,7 +52,7 @@ public class Inventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_CollectibleItem = new List<CollectibleItem>();
+        // m_CollectibleItem = new List<CollectibleItem>();
     }
 
     // Update is called once per frame
