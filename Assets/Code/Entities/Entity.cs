@@ -18,7 +18,7 @@ public class Entity : MonoBehaviour
 
     public TState m_State;
     NavMeshAgent m_NavMeshAgent;
-    private EntityHealth m_EntityHealth;
+    EntityHealth m_EntityHealth;
     public List<Transform> m_PatrolTargets;
     int m_CurrentPatrolTardetId = 0;
     public float m_HearRangeDistance;
@@ -28,6 +28,10 @@ public class Entity : MonoBehaviour
     public LayerMask m_SightLayerMask;
     public float m_EyesHeight = 1.8f;
     public float m_EyesPlayerHeight = 1.8f;
+
+    public Animation m_AnimationEntity;
+    public AnimationClip m_AnimationEntityIdle;
+    public AnimationClip m_AnimationEntityHited;
 
     void Awake()
     {
@@ -197,5 +201,11 @@ public class Entity : MonoBehaviour
     public void Hit(float Life)
     {
         m_EntityHealth.m_Health -= Life;
+    }
+
+    void SetAnimationEntityHited()
+    {
+        m_AnimationEntity.CrossFade(m_AnimationEntityHited.name, 0.1f);
+        m_AnimationEntity.CrossFadeQueued(m_AnimationEntityIdle.name, 0.1f);
     }
 }

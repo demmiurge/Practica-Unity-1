@@ -34,7 +34,7 @@ public class EntityHealth : MonoBehaviour
             m_HealthBarUI.SetActive(true);
         
         if (m_Health <= 0)
-            Destroy(gameObject);
+            gameObject.SetActive(false);
 
         if (m_Health > m_MaxHealth)
             m_Health = m_MaxHealth;
