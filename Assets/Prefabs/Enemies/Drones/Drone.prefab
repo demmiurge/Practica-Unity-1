@@ -651,6 +651,9 @@ MonoBehaviour:
     m_Bits: 119
   m_EyesHeight: 2
   m_EyesPlayerHeight: 1.8
+  m_AnimationEntity: {fileID: 0}
+  m_AnimationEntityIdle: {fileID: 0}
+  m_AnimationEntityHited: {fileID: 0}
 --- !u!114 &3479810923655146037
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -681,6 +684,7 @@ GameObject:
   - component: {fileID: 5745778677258188249}
   - component: {fileID: 5745778677258188242}
   - component: {fileID: 5527079194681187426}
+  - component: {fileID: 930046926}
   m_Layer: 8
   m_Name: PA_Drone
   m_TagString: Untagged
@@ -703,7 +707,7 @@ Transform:
   - {fileID: 5745778677258055596}
   m_Father: {fileID: 5745778677258055588}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -3.7680006, y: -19.283062, z: 15.583313}
 --- !u!33 &5745778677255155590
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -792,6 +796,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5ceec4717d6e514bb9f2437d1d8380c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!111 &930046926
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745778677258220422}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 64e4782a31f1eda4daf3c4a07cb0f2d6, type: 2}
+  - {fileID: 7400000, guid: 754a660d90201ec4797105a7559ebf09, type: 2}
+  - {fileID: 7400000, guid: b958a81aae81da54d94f26f46b9d3cdb, type: 2}
+  - {fileID: 7400000, guid: 7bdaadd7636892943befe0232fd4c3ea, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
+  m_CullingType: 0
 --- !u!1 &5745778677258220428
 GameObject:
   m_ObjectHideFlags: 0
