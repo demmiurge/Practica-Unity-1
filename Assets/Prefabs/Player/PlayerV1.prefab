@@ -242,6 +242,7 @@ GameObject:
   - component: {fileID: 937513162}
   - component: {fileID: 937513161}
   - component: {fileID: 937513169}
+  - component: {fileID: 527816586}
   m_Layer: 7
   m_Name: PlayerV1
   m_TagString: Player
@@ -310,10 +311,10 @@ MonoBehaviour:
   m_ShootLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_Bullet: {fileID: 0}
-  m_Prefab: {fileID: 6357105730803446007, guid: a3b59140a3cd7da4c99e0d79b3cfedd3, type: 3}
-  m_MaxAmmo: 0
-  m_MaxShield: 0
+  m_Bullet: {fileID: 687216505023216335, guid: 90a55fe06fc4c9143ab8af65a519355b, type: 3}
+  m_Prefab: {fileID: 687216505023216335, guid: 90a55fe06fc4c9143ab8af65a519355b, type: 3}
+  m_MaxAmmo: 100
+  m_MaxShield: 100
   m_Animation: {fileID: 0}
   m_IdleAnimationClip: {fileID: 0}
   m_ShootAnimationClip: {fileID: 0}
@@ -419,6 +420,21 @@ Rigidbody:
   m_Interpolate: 2
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &527816586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3107909816040030025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b31efaf3f1654874abd16161d7f820ce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PooledObjects: []
+  m_ObjectToPool: {fileID: 6357105730803446007, guid: a3b59140a3cd7da4c99e0d79b3cfedd3, type: 3}
+  m_AmountToPool: 20
 --- !u!1 &3107909816132282331
 GameObject:
   m_ObjectHideFlags: 0

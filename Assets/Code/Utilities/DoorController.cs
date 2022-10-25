@@ -5,16 +5,16 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public enum OpeningForms
-{
-    Distance,
-    Points,
-    Keys,
-    Keyboard,
-}
-
 public class DoorController : MonoBehaviour
 {
+    public enum OpeningForms
+    {
+        Distance,
+        Points,
+        Keys,
+        Keyboard,
+    }
+
     bool m_IsOpen;
     GameObject m_Player;
 

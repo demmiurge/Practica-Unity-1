@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.5463911, g: 0.4776551, b: 0.62300843, a: 1}
+  m_IndirectSpecularColor: {r: 0.5552282, g: 0.47814703, b: 0.629036, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1836,26 +1836,6 @@ Transform:
   m_Father: {fileID: 115438704}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &527816576 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3107909816040030025, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-  m_PrefabInstance: {fileID: 1435754991}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &527816586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527816576}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b31efaf3f1654874abd16161d7f820ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_PooledObjects: []
-  m_ObjectToPool: {fileID: 6357105730803446007, guid: a3b59140a3cd7da4c99e0d79b3cfedd3, type: 3}
-  m_AmountToPool: 20
 --- !u!1001 &549759875
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4451,7 +4431,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
   m_PrefabInstance: {fileID: 1435754991}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 527816576}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ca99818f7d3c6549879a9f14c38fb82, type: 3}
@@ -5216,33 +5196,9 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-      propertyPath: m_Ammo
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-      propertyPath: m_Bullet
-      value: 
-      objectReference: {fileID: 687216505023216335, guid: 90a55fe06fc4c9143ab8af65a519355b, type: 3}
-    - target: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-      propertyPath: m_Prefab
-      value: 
-      objectReference: {fileID: 687216505023216335, guid: 90a55fe06fc4c9143ab8af65a519355b, type: 3}
-    - target: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-      propertyPath: m_MaxAmmo
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-      propertyPath: m_MaxShield
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030025, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_Name
       value: PlayerV1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3107909816040030025, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-      propertyPath: m_TagString
-      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_RootOrder
