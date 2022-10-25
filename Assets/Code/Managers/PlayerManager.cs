@@ -24,7 +24,8 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       
+        player = GameController.GetGameController().GetPlayer();
+
         instance = this;
         ammoText.outlineWidth = 0.3f;
         ammoText.outlineColor = Color.black;
