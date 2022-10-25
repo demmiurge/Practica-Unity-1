@@ -17,6 +17,7 @@ public class ShootingGallery : MonoBehaviour
     public Canvas m_PlayerHud;
     public TMP_Text m_TextMeshPro;
     public Canvas m_Message;
+    public TMP_Text m_TextMessage;
 
     static ShootingGallery m_ShootingGallery;
     // Start is called before the first frame update
@@ -28,7 +29,12 @@ public class ShootingGallery : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(m_Message.isActiveAndEnabled)
+        {
+            //m_TextMessage.outlineColor = new Color32(255, 145, 0, 255);
+            m_TextMessage.outlineColor = Color.black;
+            m_TextMessage.outlineWidth = 0.4f;
+        }
     }
 
     public static ShootingGallery GetShootingGallery()
@@ -51,10 +57,9 @@ public class ShootingGallery : MonoBehaviour
         {
             m_TextMeshPro.gameObject.SetActive(true);
             m_Message.gameObject.SetActive(true);
-            StartCoroutine(HideMessage());
+            //StartCoroutine(HideMessage());
         }
     }
-
 
     IEnumerator HideMessage()
     {

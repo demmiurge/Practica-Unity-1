@@ -25,16 +25,16 @@ public class PlayerManager : MonoBehaviour
     {
         instance = this;
         ammoText.outlineWidth = 0.3f;
-        ammoText.outlineColor = Color.white;
+        ammoText.outlineColor = Color.black;
 
         shieldText.outlineWidth = 0.3f;
-        shieldText.outlineColor = Color.white;
+        shieldText.outlineColor = Color.black;
 
         lifeText.outlineWidth = 0.3f;
-        lifeText.outlineColor = Color.white;
+        lifeText.outlineColor = Color.black;
 
         timerText.outlineWidth = 0.3f;
-        timerText.outlineColor = Color.white;
+        timerText.outlineColor = Color.black;
 
     }
 
@@ -50,7 +50,7 @@ public class PlayerManager : MonoBehaviour
         if(scoreText.IsActive())
         {
             scoreText.outlineWidth = 0.3f;
-            scoreText.outlineColor = Color.white;
+            scoreText.outlineColor = Color.black;
         }
     }
 
