@@ -6,9 +6,8 @@ using TMPro;
 
 public class PlayerManager : MonoBehaviour
 {
-    public int m_Score = 0;
+    public int m_Score;
     public static PlayerManager instance;
-    FPSPlayerControllerV1 player;
     [SerializeField]
     TMP_Text scoreText;
     [SerializeField]
@@ -20,12 +19,9 @@ public class PlayerManager : MonoBehaviour
     [SerializeField]
     TMP_Text timerText;
 
-
     // Start is called before the first frame update
     void Start()
     {
-        player = GameController.GetGameController().GetPlayer();
-
         instance = this;
         ammoText.outlineWidth = 0.3f;
         ammoText.outlineColor = Color.black;
@@ -38,16 +34,17 @@ public class PlayerManager : MonoBehaviour
 
         timerText.outlineWidth = 0.3f;
         timerText.outlineColor = Color.black;
-
     }
 
     // Update is called once per frame
     void Update()
     {
-        scoreText.text = "Score: " + m_Score.ToString();
-        ammoText.text = "Ammo: " + GameController.GetGameController().GetPlayer().GetAmmo().ToString() + "/" + GameController.GetGameController().GetPlayer().m_MaxAmmo.ToString();
-        shieldText.text = "Shield: " + GameController.GetGameController().GetPlayer().GetShield().ToString();
-        lifeText.text = "Life: " + GameController.GetGameController().GetPlayer().GetLife().ToString();
+        FPSPlayerControllerV1 l_Player = GameController.GetGameController().GetPlayer();
+
+        scoreText.text = "Score: " + m_Score;
+        ammoText.text = "Ammo: " + l_Player.GetAmmo() + "/" + l_Player.m_MaxAmmo;
+        shieldText.text = "Shield: " + l_Player.GetShield();
+        lifeText.text = "Life: " + l_Player.GetLife();
         timerText.text = "Timer: ";
 
         if(scoreText.IsActive())

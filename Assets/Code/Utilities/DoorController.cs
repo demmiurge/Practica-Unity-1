@@ -16,7 +16,7 @@ public class DoorController : MonoBehaviour
     }
 
     bool m_IsOpen;
-    GameObject m_Player;
+    FPSPlayerControllerV1 m_Player;
 
     public Animation m_AnimationDoor;
     public AnimationClip m_AnimationNameToOpenDoor;
@@ -47,7 +47,8 @@ public class DoorController : MonoBehaviour
     void Start()
     {
         m_IsOpen = false;
-        m_Player = GameObject.FindGameObjectWithTag("Player");
+        //m_Player = GameObject.FindGameObjectWithTag("Player");
+        m_Player = GameController.GetGameController().GetPlayer();
     }
 
     // Update is called once per frame
