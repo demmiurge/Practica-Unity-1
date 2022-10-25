@@ -57,13 +57,13 @@ public class ShootingGallery : MonoBehaviour
         {
             m_TextMeshPro.gameObject.SetActive(true);
             m_Message.gameObject.SetActive(true);
-            //StartCoroutine(HideMessage());
+            StartCoroutine(HideMessage());
         }
     }
 
     IEnumerator HideMessage()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(7);
         m_Message.gameObject.SetActive(false);
     }
 }
