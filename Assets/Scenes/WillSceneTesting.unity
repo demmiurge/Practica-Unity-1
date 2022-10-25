@@ -2649,6 +2649,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8804776098505014999, guid: 1bbc1772aeb9c474781d9a8bcc79a18c, type: 3}
+      propertyPath: m_State
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8804776098505014999, guid: 1bbc1772aeb9c474781d9a8bcc79a18c, type: 3}
       propertyPath: m_PatrolTargets.Array.data[0]
       value: 
       objectReference: {fileID: 372100592}

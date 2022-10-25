@@ -624,6 +624,7 @@ GameObject:
   - component: {fileID: 8804776098502977097}
   - component: {fileID: 8804776098505014998}
   - component: {fileID: 8804776098505015005}
+  - component: {fileID: 8735262867377215341}
   m_Layer: 8
   m_Name: PA_Drone
   m_TagString: Untagged
@@ -723,6 +724,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageApplied: 0.5
   m_Entity: {fileID: 8804776098505014999}
+--- !u!114 &8735262867377215341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804776098504915081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ceec4717d6e514bb9f2437d1d8380c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8804776098504915083
 GameObject:
   m_ObjectHideFlags: 0
