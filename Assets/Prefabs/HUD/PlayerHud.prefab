@@ -44,7 +44,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Score: 0
-  player: {fileID: 0}
   scoreText: {fileID: 2922771878702554527}
   ammoText: {fileID: 2922771878730069542}
   shieldText: {fileID: 2922771878965010551}
