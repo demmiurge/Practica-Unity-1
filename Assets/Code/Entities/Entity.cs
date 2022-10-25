@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
 
     public TState m_State;
     NavMeshAgent m_NavMeshAgent;
+    private EntityHealth m_EntityHealth;
     public List<Transform> m_PatrolTargets;
     int m_CurrentPatrolTardetId = 0;
     public float m_HearRangeDistance;
@@ -30,6 +31,7 @@ public class Entity : MonoBehaviour
 
     void Awake()
     {
+        m_EntityHealth = GetComponent<EntityHealth>();
         m_NavMeshAgent = GetComponent<NavMeshAgent>();    
     }
 
@@ -194,6 +196,6 @@ public class Entity : MonoBehaviour
 
     public void Hit(float Life)
     {
-        Debug.Log("Hit life " + Life);
+        m_EntityHealth.m_Health -= Life;
     }
 }

@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f245f59634084f2478f7c480c39e30d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageApplied: 0
+  m_DamageApplied: 25
   m_Entity: {fileID: 8804776098505014999}
 --- !u!1 &8804776098504915075
 GameObject:
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f245f59634084f2478f7c480c39e30d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageApplied: 0
+  m_DamageApplied: 25
   m_Entity: {fileID: 8804776098505014999}
 --- !u!1 &8804776098504915081
 GameObject:
@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f245f59634084f2478f7c480c39e30d7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_DamageApplied: 0.5
+  m_DamageApplied: 50
   m_Entity: {fileID: 8804776098505014999}
 --- !u!114 &8735262867377215341
 MonoBehaviour:
@@ -748,6 +748,7 @@ GameObject:
   - component: {fileID: 8804776098512325449}
   - component: {fileID: 8804776098505014996}
   - component: {fileID: 8804776098505014999}
+  - component: {fileID: 416310203638374714}
   m_Layer: 8
   m_Name: PA_Drone
   m_TagString: Enemy
@@ -825,12 +826,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_State: 0
-  m_PatrolTargets:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  m_PatrolTargets: []
   m_HearRangeDistance: 3
   m_VisualConeAngle: 60
   m_SightDistance: 8
@@ -839,6 +835,22 @@ MonoBehaviour:
     m_Bits: 119
   m_EyesHeight: 2
   m_EyesPlayerHeight: 1.8
+--- !u!114 &416310203638374714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8804776098504915083}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42942f22a17ef2a408887fddb765f49d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Health: 100
+  m_MaxHealth: 100
+  m_HealthBarUI: {fileID: 1155835997}
+  m_Slider: {fileID: 419466417}
 --- !u!1 &8804776098504915085
 GameObject:
   m_ObjectHideFlags: 0

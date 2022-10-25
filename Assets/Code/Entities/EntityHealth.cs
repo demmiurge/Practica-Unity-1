@@ -16,6 +16,7 @@ public class EntityHealth : MonoBehaviour
     {
         m_Health = m_MaxHealth;
         m_Slider.value = CalculateHealth();
+        m_HealthBarUI.SetActive(false);
     }
 
     // To only have to work between 0 and 1 is more optimal for unity

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2237943107170808942}
   - component: {fileID: 5320591515454625079}
   - component: {fileID: -3044060548700270218}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BulletHole
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 6862749601054512131}
   - component: {fileID: 6011515408791308064}
   - component: {fileID: 5949882365275713893}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Decal
   m_TagString: Bullet
   m_Icon: {fileID: 0}

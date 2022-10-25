@@ -13,6 +13,14 @@ public class HitCollider : MonoBehaviour
         m_Entity.Hit(m_DamageApplied);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Bullet")
+        {
+            Hit();
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
