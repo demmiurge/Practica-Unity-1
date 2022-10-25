@@ -6,6 +6,9 @@ using TMPro;
 
 public class ShootingGallery : MonoBehaviour
 {
+    public Transform m_DetectionPoint;
+    private float m_DetectionDistance = 20;
+
     [Space(0.5f)]
     [Header("Targets")]
     [Space(1f)]
@@ -20,6 +23,7 @@ public class ShootingGallery : MonoBehaviour
     public TMP_Text m_TextMessage;
 
     static ShootingGallery m_ShootingGallery;
+    private bool m_Entered = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +39,16 @@ public class ShootingGallery : MonoBehaviour
             m_TextMessage.outlineColor = Color.black;
             m_TextMessage.outlineWidth = 0.4f;
         }
+
+        if(DetectCollision() && !m_Entered)
+        {
+            m_Entered = true;
+
+            if(m_Entered)
+            {
+                ShowMessage();
+            }
+        }
     }
 
     public static ShootingGallery GetShootingGallery()
@@ -42,28 +56,28 @@ public class ShootingGallery : MonoBehaviour
         return m_ShootingGallery;
     }
 
+    void ShowMessage()
+    {
+
+        m_TextMeshPro.gameObject.SetActive(true);
+        m_Message.gameObject.SetActive(true);
+
+
+    }
     public void ActivateShootingGallery()
     {
         //Debug.Log("Shooting Gallery");
-        for(int i = 0; i < m_TargetList.Count; i++)
+        m_Message.gameObject.SetActive(false);
+        for (int i = 0; i < m_TargetList.Count; i++)
         {
             m_TargetList[i].GetComponent<Animation>().Play();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+
+    bool DetectCollision()
     {
-        if(other.tag == "Player")
-        {
-            m_TextMeshPro.gameObject.SetActive(true);
-            m_Message.gameObject.SetActive(true);
-            StartCoroutine(HideMessage());
-        }
+        return (m_DetectionPoint.transform.position - GameController.GetGameController().GetPlayer().transform.position).magnitude <= m_DetectionDistance;
     }
 
-    IEnumerator HideMessage()
-    {
-        yield return new WaitForSeconds(7);
-        m_Message.gameObject.SetActive(false);
-    }
 }

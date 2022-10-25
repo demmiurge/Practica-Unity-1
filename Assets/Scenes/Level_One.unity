@@ -680,16 +680,20 @@ PrefabInstance:
       value: 58
       objectReference: {fileID: 0}
     - target: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.56
+      value: 4.12
       objectReference: {fileID: 0}
     - target: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.07999998
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -13.3
+      value: -13.4
       objectReference: {fileID: 0}
     - target: {fileID: 4208458315195486, guid: c96016c34e7be62488e588470988ef5b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -974,6 +978,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1553020744}
     - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
+      propertyPath: m_DetectionPoint
+      value: 
+      objectReference: {fileID: 1458537222}
+    - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
       propertyPath: m_TargetList.Array.size
       value: 3
       objectReference: {fileID: 0}
@@ -1041,7 +1049,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2144632575, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
+    - {fileID: 7069936604141882851, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
 --- !u!1 &487687952
 GameObject:
@@ -3208,6 +3218,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5060444177187149915, guid: 5233ed4e9d2f6574a8c48cc49745aedc, type: 3}
+--- !u!114 &1076559807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1076559791}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50910c440547da41b37e615a7e8e36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Value: 0
 --- !u!1001 &1081583949
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4228,6 +4251,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5060444177187149915, guid: 5233ed4e9d2f6574a8c48cc49745aedc, type: 3}
+--- !u!114 &1381023416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1381023400}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c50910c440547da41b37e615a7e8e36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Value: 0
 --- !u!1001 &1435754991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4391,6 +4427,36 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -6150326042995890324, guid: f300fde991989304882b1937a6b20acd, type: 3}
+--- !u!1 &1458537221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1458537222}
+  m_Layer: 0
+  m_Name: DetectionPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1458537222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1458537221}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7.79, y: 0, z: -28.97}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 62
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1483853993 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8649963331642890392, guid: b3910834bf7c1724a8728a0f9e122f62, type: 3}
@@ -5343,7 +5409,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome to the shooting gallery! \nIn order to pass to the next level,
-    you need to score 1500 points\nGood Luck!\n"
+    you need to score 1500 points.\nGood Luck!\nPress L to Start\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c009613d4fec9a43bc05f387512c5e1, type: 2}
   m_sharedMaterial: {fileID: -7586474137994808127, guid: 7c009613d4fec9a43bc05f387512c5e1, type: 2}

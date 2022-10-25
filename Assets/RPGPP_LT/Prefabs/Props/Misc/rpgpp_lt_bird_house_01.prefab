@@ -12,8 +12,6 @@ GameObject:
   - component: {fileID: 33999078403542552}
   - component: {fileID: 23697325097947614}
   - component: {fileID: 8529995957478567212}
-  - component: {fileID: 7069936604141882851}
-  - component: {fileID: 2144632575}
   - component: {fileID: 2144632579}
   m_Layer: 0
   m_Name: rpgpp_lt_bird_house_01
@@ -99,33 +97,6 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300000, guid: 8edf1a08abb5cb342a2a608b289c1f91, type: 3}
---- !u!135 &7069936604141882851
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668681844432972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 1.7
-  m_Center: {x: 0.00063711405, y: 1.2818903, z: 0.00694789}
---- !u!64 &2144632575
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668681844432972}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300000, guid: 8edf1a08abb5cb342a2a608b289c1f91, type: 3}
 --- !u!114 &2144632579
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,3 +109,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3000d357698d2ef428504a0fa14945e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_TargetList: []
+  m_PlayerHud: {fileID: 0}
+  m_TextMeshPro: {fileID: 0}
+  m_Message: {fileID: 0}
+  m_TextMessage: {fileID: 0}

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2871783169219066928}
   - component: {fileID: 2237943107170808942}
   - component: {fileID: 5320591515454625079}
-  - component: {fileID: 2050078337809861691}
+  - component: {fileID: -3044060548700270218}
   m_Layer: 0
   m_Name: BulletHole
   m_TagString: Bullet
@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96e6ff990f7c27a4c859eb783e33af93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!54 &2050078337809861691
+--- !u!54 &-3044060548700270218
 Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
