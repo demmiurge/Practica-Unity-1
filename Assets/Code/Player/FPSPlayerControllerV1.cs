@@ -56,7 +56,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public KeyCode m_RunKeyCode = KeyCode.LeftShift;
     public KeyCode m_DebugLockAngleKeyCode = KeyCode.I;
     public KeyCode m_DebugLockKeyCode = KeyCode.O;
-    public KeyCode m_ShootingGalleryCode = KeyCode.KeypadEnter;
+    public KeyCode m_ShootingGalleryCode = KeyCode.L;
     bool m_AngleLocked = false;
     bool m_AimLocked = true;
 
@@ -105,6 +105,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     Vector3 m_InitialPosition;
     Quaternion m_InitialRotation;
 
+    private ShootingGallery m_Gallery;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -127,6 +129,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_InitialRotation = transform.rotation;
 
         //m_PoolOfElements = new PoolOfElements(25, m_Prefab);
+
     }
 
     public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
@@ -207,7 +210,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         //ShootingGallery
         if(Input.GetKeyDown(m_ShootingGalleryCode))
         {
-            ShootingGallery.FindObjectOfType<ShootingGallery>().ActivateShootingGallery();
+            ShootingGallery.GetShootingGallery().ActivateShootingGallery();
+            Debug.Log("Activao");
         }
 
         // FOV control

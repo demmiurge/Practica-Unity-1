@@ -15,10 +15,27 @@ public class PlayerManager : MonoBehaviour
     TMP_Text ammoText;
     [SerializeField]
     TMP_Text shieldText;
+    [SerializeField]
+    TMP_Text lifeText;
+    [SerializeField]
+    TMP_Text timerText;
+
     // Start is called before the first frame update
     void Start()
     {
         instance = this;
+        ammoText.outlineWidth = 0.3f;
+        ammoText.outlineColor = Color.white;
+
+        shieldText.outlineWidth = 0.3f;
+        shieldText.outlineColor = Color.white;
+
+        lifeText.outlineWidth = 0.3f;
+        lifeText.outlineColor = Color.white;
+
+        timerText.outlineWidth = 0.3f;
+        timerText.outlineColor = Color.white;
+
     }
 
     // Update is called once per frame
@@ -27,5 +44,14 @@ public class PlayerManager : MonoBehaviour
         scoreText.text = "Score: " + m_Score.ToString();
         ammoText.text = "Ammo: " + player.GetAmmo().ToString() + "/" + player.m_MaxAmmo.ToString();
         shieldText.text = "Shield: " + player.GetShield().ToString();
+        lifeText.text = "Life: " + player.GetLife().ToString();
+        timerText.text = "Timer: ";
+
+        if(scoreText.IsActive())
+        {
+            scoreText.outlineWidth = 0.3f;
+            scoreText.outlineColor = Color.white;
+        }
     }
+
 }
