@@ -16,6 +16,8 @@ public class GameController : MonoBehaviour
         if(m_GameController == null)
         {
             m_GameController = new GameObject("GameController").AddComponent<GameController>();
+            GameControllerData l_GameControllerData = Resources.Load<GameControllerData>("GameControllerData");
+            m_GameController.m_PlayerLife = l_GameControllerData.m_Life;
         }
         return m_GameController;
     }
