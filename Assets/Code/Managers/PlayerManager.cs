@@ -42,8 +42,8 @@ public class PlayerManager : MonoBehaviour
 
         scoreText.text = "Score: " + m_Score;
         ammoText.text = "Ammo: " + l_Player.GetAmmo() + "/" + l_Player.m_MaxAmmo;
-        shieldText.text = "Shield: " + l_Player.GetShield();
-        lifeText.text = "Life: " + l_Player.GetLife();
+        shieldText.text = "Shield: " + l_Player.GetShield().ToString("0");
+        lifeText.text = "Life: " + l_Player.GetLife().ToString("0");
         timerText.text = "Timer: " +  l_Player.GetTime().ToString("0.0");
 
         if(scoreText.IsActive() && timerText.IsActive())

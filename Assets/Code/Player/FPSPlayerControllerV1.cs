@@ -59,6 +59,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public KeyCode m_DebugLockKeyCode = KeyCode.O;
     public KeyCode m_ShootingGalleryCode = KeyCode.L;
     public KeyCode m_Pause = KeyCode.P;
+    public KeyCode m_Restart = KeyCode.R;
     bool m_AngleLocked = false;
     bool m_AimLocked = true;
 
@@ -243,6 +244,12 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         if(Input.GetKeyDown(m_Pause))
         {
             Pause();
+        }
+
+        //Restart
+        if(Input.GetKeyDown(m_Restart))
+        {
+
         }
 
         // FOV control

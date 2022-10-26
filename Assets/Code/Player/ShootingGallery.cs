@@ -28,6 +28,7 @@ public class ShootingGallery : MonoBehaviour
 
     static ShootingGallery m_ShootingGallery;
     private bool m_Entered = false;
+    private bool m_Scored = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -63,9 +64,12 @@ public class ShootingGallery : MonoBehaviour
 
         if(PlayerManager.instance.m_Score >= 1000)
         {
-            m_NextMessage.gameObject.SetActive(true);
-            Debug.Log("Score");
-            StartCoroutine(HideMessage());
+            m_Scored = true;
+            if (m_Scored)
+            {
+                m_NewMessageCanvas.gameObject.SetActive(true);
+                StartCoroutine(HideMessage());
+            }
         }
     }
 
@@ -97,7 +101,6 @@ public class ShootingGallery : MonoBehaviour
 
     public void ActivateShootingGallery()
     {
-        //Debug.Log("Shooting Gallery");
         m_Message.gameObject.SetActive(false);
         m_Aim.gameObject.SetActive(true);
         for (int i = 0; i < m_TargetList.Count; i++)
@@ -115,6 +118,6 @@ public class ShootingGallery : MonoBehaviour
     IEnumerator HideMessage()
     {
         yield return new WaitForSeconds(5);
-        m_NextMessage.gameObject.SetActive(false);
+        m_NewMessageCanvas.gameObject.SetActive(false);
     }
 }
