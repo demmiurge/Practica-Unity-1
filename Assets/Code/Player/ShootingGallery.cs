@@ -102,12 +102,22 @@ public class ShootingGallery : MonoBehaviour
 
     public void ActivateShootingGallery()
     {
+        GameController.GetGameController().GetPlayer().ResetTime();
         m_Message.gameObject.SetActive(false);
         m_Aim.gameObject.SetActive(true);
         for (int i = 0; i < m_TargetList.Count; i++)
         {
             m_TargetList[i].GetComponent<Animation>().Play();
         }
+    }
+
+    public void RestartGallery()
+    {
+        PlayerManager.instance.m_Score = 0;
+        m_NewMessageCanvas.gameObject.SetActive(false);
+        StartCoroutine(ShowMessageAgain());
+        m_Entered = false;
+        m_Scored = false;
     }
 
 
@@ -120,5 +130,11 @@ public class ShootingGallery : MonoBehaviour
     {
         yield return new WaitForSeconds(5);
         m_NewMessageCanvas.gameObject.SetActive(false);
+    }
+
+    IEnumerator ShowMessageAgain()
+    {
+        yield return new WaitForSeconds(2);
+        ShowMessage();
     }
 }

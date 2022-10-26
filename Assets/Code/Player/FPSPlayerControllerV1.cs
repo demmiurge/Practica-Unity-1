@@ -249,7 +249,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         //Restart
         if(Input.GetKeyDown(m_Restart))
         {
-
+            ShootingGallery.GetShootingGallery().RestartGallery();
         }
 
         // FOV control
@@ -350,6 +350,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         {
             m_CurrentAmmo = m_MaxAmmo;
         }
+    }
+
+    public void ResetTime()
+    {
+        m_Time = m_MaxTime;
     }
 
     void CreateShootHitParticles(Collider _collider, Vector3 Position, Vector3 Normal)
