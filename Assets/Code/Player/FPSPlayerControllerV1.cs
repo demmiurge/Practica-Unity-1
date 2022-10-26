@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using static UnityEngine.GraphicsBuffer;
+using System;
 
 public class FPSPlayerControllerV1 : MonoBehaviour
 {
@@ -57,6 +58,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     public KeyCode m_DebugLockAngleKeyCode = KeyCode.I;
     public KeyCode m_DebugLockKeyCode = KeyCode.O;
     public KeyCode m_ShootingGalleryCode = KeyCode.L;
+    public KeyCode m_Pause = KeyCode.P;
     bool m_AngleLocked = false;
     bool m_AimLocked = true;
 
@@ -109,6 +111,9 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     private float m_Time;
     private float m_MaxTime = 30;
     private bool m_TimerActive = false;
+    private bool m_Paused;
+
+    public static event Action<bool> OnPause;
 
     // Start is called before the first frame update
     void Start()
@@ -133,6 +138,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
         //m_PoolOfElements = new PoolOfElements(25, m_Prefab);
         m_Time = m_MaxTime;
+        
+        m_Paused = false;
     }
 
     public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
@@ -225,6 +232,13 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         if(m_Time == 0)
         {
             m_TimerActive=false;
+        }
+
+        //Pause
+        if(Input.GetKeyDown(m_Pause))
+        {
+            Pause();
+            Debug.Log("Pause");
         }
 
         // FOV control
@@ -438,6 +452,25 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         }
         else
             Mathf.Clamp(m_Life - Damage , 0.0f, 1.0f);
+    }
+
+    public void Pause()
+    {
+        if (m_Paused)
+        {
+            m_Paused = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            m_AimLocked = false;
+        }
+        else
+        {
+            m_Paused = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            m_AimLocked = true;
+        }
+        OnPause?.Invoke(m_Paused);
     }
 
     IEnumerator DestroyOnTime(GameObject Decal)

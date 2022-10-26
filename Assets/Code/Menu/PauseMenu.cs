@@ -1,30 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
-    public GameObject menuPause;
-    public GameObject menuOptions;
-    public GameObject menuSettings;
+    public GameObject m_PanelBackground;
+    public GameObject m_MenuOptions;
+    public GameObject m_HUD;
+    public GameObject m_Aim;
+
+    static PauseMenu m_PauseMenu = null;
 
     float _time;
     bool _pause;
 
+    public static PauseMenu GetPauseMenu()
+    {
+        if (m_PauseMenu == null)
+        {
+            m_PauseMenu = new GameObject("Pause").AddComponent<PauseMenu>();
+        }
+        return m_PauseMenu;
+    }
+
     private void OnEnable()
     {
-        //Player.OnPause += Pause;
+        FPSPlayerControllerV1.OnPause += Pause;
     }
 
     private void OnDisable()
     {
-        //Player.OnPause += Pause;
+        FPSPlayerControllerV1.OnPause += Pause;
     }
 
     private void Start()
     {
-        menuPause.GetComponent<Animator>().SetBool("Pause", false);
-        menuSettings.SetActive(false);
+        //DontDestroyOnLoad(this.gameObject);
+        m_MenuOptions.SetActive(false);
         Time.timeScale = 1f;
         _time = 0.0f;
     }
@@ -43,7 +56,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
-        //GameObject.FindObjectOfType<Player>().Pause();
+        GameObject.FindObjectOfType<FPSPlayerControllerV1>().Pause();
     }
 
     public void Pause(bool ispaused)
@@ -52,20 +65,36 @@ public class PauseMenu : MonoBehaviour
         if (ispaused)
         {
             _time = 0.0f;
-            menuPause.GetComponent<Animator>().SetBool("Pause", true);
+            m_PanelBackground.SetActive(true);
+            m_PanelBackground.GetComponent<Animation>().Play("Menu_background");
+            m_MenuOptions.SetActive(true);
+            m_Aim.SetActive(false);
+            m_HUD.SetActive(false);
             //MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
         }
         else
         {
-            //OptionsClose();
-            menuPause.GetComponent<Animator>().SetBool("Pause", false);
+            m_MenuOptions.SetActive(false);
+            m_Aim.SetActive(true);
+            m_HUD.SetActive(true);
+            m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
             Time.timeScale = 1f;
         }
     }
 
-    public void ExitClick()
+    public void OnRestartClick()
     {
-        //SceneManager.LoadScene("MainMenu");
+        m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
+        m_MenuOptions.SetActive(false);
+        m_PanelBackground.SetActive(false);
+        SceneManager.LoadScene("Level_One");
+    }
+
+    public void OnExitClick()
+    {
+        m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
+        m_MenuOptions.SetActive(false);
+        SceneManager.LoadSceneAsync("Menu");
         //MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
     }
 }
