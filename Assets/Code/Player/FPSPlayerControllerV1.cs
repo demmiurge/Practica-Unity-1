@@ -224,15 +224,16 @@ public class FPSPlayerControllerV1 : MonoBehaviour
             m_TimerActive = true;
         }
 
+        if(m_Time <= 0)
+        {
+            m_TimerActive=false;
+        }
+
         if(m_TimerActive)
         {
             m_Time -= Time.deltaTime;
         }
 
-        if(m_Time == 0)
-        {
-            m_TimerActive=false;
-        }
 
         //Pause
         if(Input.GetKeyDown(m_Pause))
