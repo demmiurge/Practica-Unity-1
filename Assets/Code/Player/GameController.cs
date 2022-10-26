@@ -49,6 +49,16 @@ public class GameController : MonoBehaviour
         return m_PlayerLife;
     }
 
+    public float GetShield()
+    {
+        return m_Player.GetShield();
+    }
+
+    public float GetAmmo()
+    {
+        return m_Player.GetAmmo();
+    }
+
     public void RestartGame()
     {
         m_Player.RestartGame();
