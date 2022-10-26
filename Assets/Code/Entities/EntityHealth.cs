@@ -32,9 +32,9 @@ public class EntityHealth : MonoBehaviour
 
         if (m_Health < m_MaxHealth)
             m_HealthBarUI.SetActive(true);
-        
+
         if (m_Health <= 0)
-            gameObject.SetActive(false);
+            m_HealthBarUI.SetActive(false);
 
         if (m_Health > m_MaxHealth)
             m_Health = m_MaxHealth;

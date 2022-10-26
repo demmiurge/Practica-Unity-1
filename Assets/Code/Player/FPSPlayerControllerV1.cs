@@ -443,7 +443,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         Debug.Log("Alive");
     }
 
-    void RecieveDamage(float Damage)
+    public void RecieveDamage(float Damage)
     {
         if (m_CurrentShield >= 0)
         {

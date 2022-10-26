@@ -17,11 +17,13 @@ public class Entity : MonoBehaviour
     }
 
     public TState m_State;
+    TState m_PreviousState;
+
     NavMeshAgent m_NavMeshAgent;
     EntityHealth m_EntityHealth;
     public List<Transform> m_PatrolTargets;
     int m_CurrentPatrolTardetId = 0;
-    public float m_HearRangeDistance;
+    public float m_HearRangeDistance = 5;
     
     public float m_VisualConeAngle = 60.0f;
     public float m_SightDistance = 8.0f;
@@ -29,9 +31,29 @@ public class Entity : MonoBehaviour
     public float m_EyesHeight = 1.8f;
     public float m_EyesPlayerHeight = 1.8f;
 
+    float m_Angle = 360.0f;
+    public float m_RotationTime = 1.0f;
+    Vector3 m_Axis = Vector3.up;
+    float m_RotationLeft;
+
+    public float m_DistanceToShoot = 8;
+
     public Animation m_AnimationEntity;
     public AnimationClip m_AnimationEntityIdle;
-    public AnimationClip m_AnimationEntityHited;
+    public AnimationClip m_AnimationEntityPatrol;
+    public AnimationClip m_AnimationEntityHit;
+    public AnimationClip m_AnimationEntityDie;
+
+    bool m_BeingHit = false;
+    bool m_BeingDie = false;
+
+    bool m_Shooting = false;
+
+    public float m_TimeToDisappear = 4;
+
+    public float m_GunDamage = 25;
+
+    public GameObject m_ItemDrop;
 
     void Awake()
     {
@@ -43,6 +65,8 @@ public class Entity : MonoBehaviour
     void Start()
     {
         SetIdleState();
+
+        SetAnimationEntityIdle();
     }
 
     // Update is called once per frame
@@ -102,6 +126,8 @@ public class Entity : MonoBehaviour
             MoveToNextPatrolPosition();
         if (HearsPlayer())
             SetAlertState();
+        if (SeesPlayer())
+            SetChaseState();
     }
 
     bool PatrolTargetPositionArrived()
@@ -145,51 +171,107 @@ public class Entity : MonoBehaviour
     void SetAlertState()
     {
         m_State = TState.ALERT;
+        StartCoroutine(EndOfRotation());
     }
 
     void UpdateAlertState()
     {
+        transform.RotateAround(transform.position, m_Axis, m_Angle * Time.deltaTime / m_RotationTime);
 
+        if (SeesPlayer())
+            SetChaseState();
+    }
+
+    IEnumerator EndOfRotation()
+    {
+        yield return new WaitForSeconds(m_RotationTime);
+        SetPatrolState();
     }
 
     void SetChaseState()
     {
         m_State = TState.CHASE;
+        m_NavMeshAgent.isStopped = false;
     }
 
     void UpdateChaseState()
     {
+        if (SeesPlayer())
+        {
+            m_NavMeshAgent.destination = GameController.GetGameController().GetPlayer().transform.position;
 
+            if (InDistanceToShoot())
+            {
+                SetAttackState();
+            }
+        }
+        else
+        {
+            SetAlertState();
+        }
+    }
+
+    bool InDistanceToShoot()
+    {
+        return (transform.position - GameController.GetGameController().GetPlayer().transform.position).magnitude <= m_DistanceToShoot;
     }
 
     void SetAttackState()
     {
         m_State = TState.ATTACK;
+        m_NavMeshAgent.isStopped = true;
     }
 
     void UpdateAttackState()
     {
-
+        if (SeesPlayer() && InDistanceToShoot())
+        {
+            if (!m_Shooting)
+                Shoot();
+        }
+        else
+        {
+            SetChaseState();
+        }
     }
 
-    void SetHitState()
+    void Shoot()
     {
+        m_Shooting = true;
+        StartCoroutine(Reloading());
+        GameController.GetGameController().GetPlayer().RecieveDamage(m_GunDamage);
+    }
+
+    IEnumerator Reloading()
+    {
+        yield return new WaitForSeconds(m_AnimationEntityDie.length + m_TimeToDisappear);
+
+        m_Shooting = false;
+    }
+
+    void SetHitState(float Life)
+    {
+        m_PreviousState = m_State;
         m_State = TState.HIT;
+        m_EntityHealth.m_Health -= Life;
+        SetAnimationEntityHit();
     }
 
     void UpdateHitState()
     {
-
+            
     }
 
-    void SetDieState()
+    void SetDieState(float Life)
     {
         m_State = TState.DIE;
+        m_EntityHealth.m_Health -= Life;
+        SetAnimationEntityDie();
     }
 
     void UpdateDieState()
     {
-
+            
     }
 
     bool HearsPlayer()
@@ -200,12 +282,63 @@ public class Entity : MonoBehaviour
 
     public void Hit(float Life)
     {
-        m_EntityHealth.m_Health -= Life;
+        if (m_EntityHealth.m_Health - Life > 0) {
+            if (!m_BeingHit)
+                SetHitState(Life);
+        }
+        else
+        {
+            if (!m_BeingDie)
+                SetDieState(Life);
+        }
     }
 
-    void SetAnimationEntityHited()
+    void SetAnimationEntityIdle()
     {
-        m_AnimationEntity.CrossFade(m_AnimationEntityHited.name, 0.1f);
+        m_AnimationEntity.CrossFade(m_AnimationEntityIdle.name);
+    }
+
+    void SetAnimationEntityHit()
+    {
+        m_BeingHit = true;
+
+        m_AnimationEntity.CrossFade(m_AnimationEntityHit.name, 0.1f);
         m_AnimationEntity.CrossFadeQueued(m_AnimationEntityIdle.name, 0.1f);
+
+        StartCoroutine(EndHit());
+    }
+
+    void SetAnimationEntityDie()
+    {
+        m_BeingDie = true;
+
+        m_AnimationEntity.CrossFade(m_AnimationEntityDie.name);
+
+        StartCoroutine(DropItemOnDie());
+
+        StartCoroutine(EndDie());
+    }
+
+    IEnumerator EndHit()
+    {
+        yield return new WaitForSeconds(m_AnimationEntityHit.length);
+
+        m_BeingHit = false;
+        m_State = m_PreviousState;
+    }
+
+    IEnumerator DropItemOnDie()
+    {
+        yield return new WaitForSeconds(m_AnimationEntityDie.length);
+
+        if (m_ItemDrop)
+            Instantiate(m_ItemDrop, new Vector3(0, 0, 0), Quaternion.identity);
+    }
+
+    IEnumerator EndDie()
+    {
+        yield return new WaitForSeconds(m_AnimationEntityDie.length + m_TimeToDisappear);
+
+        gameObject.SetActive(false);
     }
 }
