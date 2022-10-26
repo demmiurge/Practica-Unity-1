@@ -23,6 +23,8 @@ public class ShootingGallery : MonoBehaviour
     public Canvas m_Message;
     public TMP_Text m_TextMessage;
     public Canvas m_Aim;
+    public Canvas m_NewMessageCanvas;
+    public TMP_Text m_NextMessage;
 
     static ShootingGallery m_ShootingGallery;
     private bool m_Entered = false;
@@ -42,7 +44,14 @@ public class ShootingGallery : MonoBehaviour
             m_TextMessage.outlineWidth = 0.4f;
         }
 
-        if(DetectCollision() && !m_Entered)
+        if (m_NewMessageCanvas.isActiveAndEnabled)
+        {
+            //m_TextMessage.outlineColor = new Color32(255, 145, 0, 255);
+            m_NextMessage.outlineColor = Color.black;
+            m_NextMessage.outlineWidth = 0.4f;
+        }
+
+        if (DetectCollision() && !m_Entered)
         {
             m_Entered = true;
 
@@ -50,6 +59,13 @@ public class ShootingGallery : MonoBehaviour
             {
                 ShowMessage();
             }
+        }
+
+        if(PlayerManager.instance.m_Score >= 1000)
+        {
+            m_NextMessage.gameObject.SetActive(true);
+            Debug.Log("Score");
+            StartCoroutine(HideMessage());
         }
     }
 
@@ -96,4 +112,9 @@ public class ShootingGallery : MonoBehaviour
         return (m_DetectionPoint.transform.position - GameController.GetGameController().GetPlayer().transform.position).magnitude <= m_DetectionDistance;
     }
 
+    IEnumerator HideMessage()
+    {
+        yield return new WaitForSeconds(5);
+        m_NextMessage.gameObject.SetActive(false);
+    }
 }
