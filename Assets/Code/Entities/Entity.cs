@@ -270,6 +270,7 @@ public class Entity : MonoBehaviour
     {
         m_State = TState.DIE;
         m_EntityHealth.m_Health -= Life;
+        m_NavMeshAgent.isStopped = true;
         SetAnimationEntityDie();
     }
 
