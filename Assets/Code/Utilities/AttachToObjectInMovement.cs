@@ -8,7 +8,6 @@ public class AttachToObjectInMovement : MonoBehaviour
     {
         if (other.tag == "Platform")
         {
-            Debug.Log("Enter platform");
             transform.parent = other.transform;
         }
     }
@@ -18,7 +17,6 @@ public class AttachToObjectInMovement : MonoBehaviour
     {
         if (other.tag == "Platform")
         {
-            Debug.Log("Exit platform");
             transform.parent = null;
         }
     }

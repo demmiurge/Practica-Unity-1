@@ -9,7 +9,6 @@ public class AttachBullet : MonoBehaviour
         if(other.transform.tag == "Target")
         {
             transform.parent = other.transform;
-            Debug.Log("parent");
         }
     }
 }
