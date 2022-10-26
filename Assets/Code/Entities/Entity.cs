@@ -117,6 +117,7 @@ public class Entity : MonoBehaviour
     void SetPatrolState()
     {
         m_State = TState.PATROL;
+        m_NavMeshAgent.isStopped = false;
         m_NavMeshAgent.destination = m_PatrolTargets[m_CurrentPatrolTardetId].position;
     }
 
@@ -171,6 +172,7 @@ public class Entity : MonoBehaviour
     void SetAlertState()
     {
         m_State = TState.ALERT;
+        m_NavMeshAgent.isStopped = true;
         StartCoroutine(EndOfRotation());
     }
 
@@ -251,7 +253,7 @@ public class Entity : MonoBehaviour
 
     void SetHitState(float Life)
     {
-        m_PreviousState = m_State;
+        m_PreviousState = TState.ALERT;
         m_State = TState.HIT;
         m_EntityHealth.m_Health -= Life;
         SetAnimationEntityHit();
@@ -282,6 +284,8 @@ public class Entity : MonoBehaviour
 
     public void Hit(float Life)
     {
+        m_NavMeshAgent.isStopped = true;
+
         if (m_EntityHealth.m_Health - Life > 0) {
             if (!m_BeingHit)
                 SetHitState(Life);
