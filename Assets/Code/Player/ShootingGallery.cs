@@ -62,7 +62,7 @@ public class ShootingGallery : MonoBehaviour
             }
         }
 
-        if(PlayerManager.instance.m_Score >= 1000)
+        if(PlayerManager.instance.m_Score >= 1000 && !m_Scored)
         {
             m_Scored = true;
             if (m_Scored)
@@ -71,6 +71,8 @@ public class ShootingGallery : MonoBehaviour
                 StartCoroutine(HideMessage());
             }
         }
+
+        TimeUp();
     }
 
     public static ShootingGallery GetShootingGallery()
@@ -91,7 +93,6 @@ public class ShootingGallery : MonoBehaviour
     {
         if(GameController.GetGameController().GetPlayer().GetTime() <= 0)
         {
-            Debug.Log("Adeu");
             for (int i = 0; i < m_TargetList.Count; i++)
             {
                 m_TargetList[i].GetComponent<Animation>().Stop();
