@@ -48,12 +48,13 @@ public class DoorController : MonoBehaviour
     {
         m_IsOpen = false;
         //m_Player = GameObject.FindGameObjectWithTag("Player");
-        m_Player = GameController.GetGameController().GetPlayer();
+        //m_Player = GameController.GetGameController().GetPlayer();
     }
 
     // Update is called once per frame
     void Update()
     {
+        m_Player = GameController.GetGameController().GetPlayer();
         switch (m_OpeningForm)
         {
             case OpeningForms.Distance:
@@ -79,7 +80,10 @@ public class DoorController : MonoBehaviour
 
     void OpenByPoints()
     {
-        OpenByKeyboard();
+        if (PlayerManager.instance.m_Score >= 1000)
+        {
+            GateState(true);
+        }
     }
 
     void OpenByKey()
