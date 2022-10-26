@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
+
 public class Entity : MonoBehaviour
 {
     public enum TState
@@ -49,11 +50,11 @@ public class Entity : MonoBehaviour
 
     bool m_Shooting = false;
 
-    public float m_TimeToDisappear = 4;
+    public float m_TimeToDisappear = 2;
 
     public float m_GunDamage = 25;
 
-    public GameObject m_ItemDrop;
+    public List<GameObject> m_ItemDrop;
 
     void Awake()
     {
@@ -67,6 +68,7 @@ public class Entity : MonoBehaviour
         SetIdleState();
 
         SetAnimationEntityIdle();
+        //m_ItemDrop = new List<GameObject>(3);
     }
 
     // Update is called once per frame
@@ -334,15 +336,15 @@ public class Entity : MonoBehaviour
     IEnumerator DropItemOnDie()
     {
         yield return new WaitForSeconds(m_AnimationEntityDie.length);
-
-        if (m_ItemDrop)
-            Instantiate(m_ItemDrop, new Vector3(0, 0, 0), Quaternion.identity);
+      
     }
 
     IEnumerator EndDie()
     {
-        yield return new WaitForSeconds(m_AnimationEntityDie.length + m_TimeToDisappear);
+        yield return new WaitForSeconds(m_AnimationEntityDie.length);
 
         gameObject.SetActive(false);
+        int rand = Random.RandomRange(0, 2);
+            Instantiate(m_ItemDrop[rand], new Vector3(this.transform.position.x, this.transform.position.y + 1, this.transform.position.z), Quaternion.identity);
     }
 }

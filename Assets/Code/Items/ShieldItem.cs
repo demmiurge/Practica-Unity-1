@@ -4,7 +4,7 @@
 
     public override void Pick(FPSPlayerControllerV1 Player)
     {
-        if (Player.GetShield() <= 0.0f)
+        if (Player.GetShield() < 100.0f)
         {
             Player.AddShield(m_Shield);
             gameObject.SetActive(false);

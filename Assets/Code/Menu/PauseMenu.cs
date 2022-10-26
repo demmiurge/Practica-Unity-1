@@ -82,14 +82,13 @@ public class PauseMenu : MonoBehaviour
         _pause = false;
         GameController.GetGameController().GetPlayer().m_Paused = false;
         Time.timeScale = 1f;
+        Cursor.visible = false;
         GameController.GetGameController().RestartGame();
     }
 
     public void OnExitClick()
     {
-
         m_MenuOptions.SetActive(false);
         SceneManager.LoadSceneAsync("Menu");
-        //MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
     }
 }

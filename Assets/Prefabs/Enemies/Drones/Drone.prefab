@@ -663,7 +663,10 @@ MonoBehaviour:
   m_AnimationEntityDie: {fileID: 7400000, guid: 7bdaadd7636892943befe0232fd4c3ea, type: 2}
   m_TimeToDisappear: 5
   m_GunDamage: 25
-  m_ItemDrop: {fileID: 0}
+  m_ItemDrop:
+  - {fileID: 3611175072112165697, guid: 04f85ac489ec9294195e6180209e5803, type: 3}
+  - {fileID: 4565796060582779275, guid: d7a70d9a6b611a24da9c0241143d4e00, type: 3}
+  - {fileID: 561540134077124520, guid: 4dc5950a8aa192f45887ce3896ed4ba8, type: 3}
 --- !u!114 &3479810923655146037
 MonoBehaviour:
   m_ObjectHideFlags: 0
