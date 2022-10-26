@@ -654,7 +654,7 @@ MonoBehaviour:
     m_Bits: 119
   m_EyesHeight: 2
   m_EyesPlayerHeight: 1.8
-  m_RotationTime: 6
+  m_RotationTime: 3
   m_DistanceToShoot: 4
   m_AnimationEntity: {fileID: 930046926}
   m_AnimationEntityIdle: {fileID: 7400000, guid: 64e4782a31f1eda4daf3c4a07cb0f2d6, type: 2}
@@ -775,7 +775,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5745778677258220422}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.125
@@ -838,6 +838,7 @@ GameObject:
   - component: {fileID: 5745778677256285518}
   - component: {fileID: 5745778677258188255}
   - component: {fileID: 5745778677258188252}
+  - component: {fileID: 2501060149577233860}
   m_Layer: 8
   m_Name: PA_DroneWingRight
   m_TagString: Untagged
@@ -936,6 +937,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageApplied: 25
   m_Entity: {fileID: 5745778677258188248}
+--- !u!114 &2501060149577233860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745778677258220428}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ceec4717d6e514bb9f2437d1d8380c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5745778677258220430
 GameObject:
   m_ObjectHideFlags: 0
@@ -949,6 +962,7 @@ GameObject:
   - component: {fileID: 5745778677256285504}
   - component: {fileID: 5745778677258188254}
   - component: {fileID: 5745778677258188241}
+  - component: {fileID: 6842268729415727619}
   m_Layer: 8
   m_Name: PA_DroneWingLeft
   m_TagString: Untagged
@@ -1047,3 +1061,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_DamageApplied: 25
   m_Entity: {fileID: 5745778677258188248}
+--- !u!114 &6842268729415727619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5745778677258220430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a5ceec4717d6e514bb9f2437d1d8380c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

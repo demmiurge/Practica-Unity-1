@@ -447,23 +447,31 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     public void RestartGame()
     {
-        m_Life = 0;
+        m_Life = 100;
+        m_CurrentShield = 100;
         m_CharacterController.enabled = false;
         transform.position = m_InitialPosition;
         transform.rotation = m_InitialRotation;
         m_CharacterController.enabled = true;
-        Debug.Log("Alive");
     }
 
     public void RecieveDamage(float Damage)
     {
         if (m_CurrentShield >= 0)
         {
-            Mathf.Clamp(m_Life - Damage * 0.25f, 0.0f, 1.0f);
-            Mathf.Clamp(m_CurrentShield - Damage * 0.75f, 0.0f, 1.0f);
+            m_Life -= Damage * 0.25f;
+            m_CurrentShield -= Damage * 0.75f;
         }
         else
-            Mathf.Clamp(m_Life - Damage , 0.0f, 1.0f);
+        {
+            m_CurrentShield = 0;
+            m_Life -= Damage;
+        }
+
+        if (m_Life <= 0)
+        {
+            Kill();
+        }
     }
 
     public void Pause()
