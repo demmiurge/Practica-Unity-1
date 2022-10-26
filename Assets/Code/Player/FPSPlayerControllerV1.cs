@@ -115,6 +115,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     public static event Action<bool> OnPause;
 
+    bool m_Shooting = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -132,6 +134,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         SetFOVIfParametersAreEmpty();
         m_CurrentAmmo = m_MaxAmmo;
         m_CurrentShield = m_MaxShield;
+
+        SetIdleWeaponAnimation();
 
         m_InitialPosition = transform.position;
         m_InitialRotation = transform.rotation;
@@ -201,7 +205,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 #endif
 
         //Shoot
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && IsShooting())
             Shoot();
 
         // Movement
@@ -298,6 +302,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         }
     }
 
+    bool IsShooting()
+    {
+        return !m_Shooting;
+    }
+
     bool CanShoot()
     {
         if (m_CurrentAmmo > 0)
@@ -324,6 +333,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
                 m_CurrentAmmo -= 1;
             }
         }
+        SetShootWeaponAnimation();
+        m_Shooting = true;
     }
 
     void Recharge()
@@ -397,6 +408,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     {
         m_Animation.CrossFade(m_ShootAnimationClip.name, 0.1f);
         m_Animation.CrossFadeQueued(m_IdleAnimationClip.name, 0.1f);
+        StartCoroutine(EndShoot());
     }
 
     public float GetLife()
@@ -478,5 +490,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         yield return new WaitForSeconds(2);
         Decal.SetActive(false);
         Decal.transform.parent = null;
+    }
+
+    IEnumerator EndShoot()
+    {
+        yield return new WaitForSeconds(m_ShootAnimationClip.length);
+        m_Shooting = false;
     }
 }

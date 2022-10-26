@@ -349,14 +349,14 @@ Animation:
   m_GameObject: {fileID: 3107909816040030025}
   m_Enabled: 1
   serializedVersion: 3
-  m_Animation: {fileID: 0}
+  m_Animation: {fileID: 7400000, guid: 546fce012fcb46a46897ecb1d9f44698, type: 2}
   m_Animations:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 7400000, guid: 546fce012fcb46a46897ecb1d9f44698, type: 2}
   - {fileID: 7400000, guid: d99c3e5a9ea2f7447abd4c0daaa50979, type: 2}
+  - {fileID: 0}
   m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 1
   m_CullingType: 0
 --- !u!114 &327246621
 MonoBehaviour:
