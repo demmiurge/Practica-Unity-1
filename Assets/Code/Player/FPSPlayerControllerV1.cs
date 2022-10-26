@@ -188,7 +188,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     {
 
 #if UNITY_EDITOR
-        UpdateInputDebug();
+        //UpdateInputDebug();
 #endif
 
         Vector3 l_RightDirection = transform.right;
@@ -201,11 +201,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         float l_MouseY = Input.GetAxis("Mouse Y");
 
 #if UNITY_EDITOR
-        if (m_AngleLocked)
-        {
-            l_MouseX = 0.0f;
-            l_MouseY = 0.0f;
-        }
+        //if (m_AngleLocked)
+        //{
+        //    l_MouseX = 0.0f;
+        //    l_MouseY = 0.0f;
+        //}
 #endif
 
         //Shoot
@@ -456,9 +456,8 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     void Kill()
     {
         m_Life = 0;
-        //GameController.GetGameController().RestartGame();
-        Die();
-
+        GameController.GetGameController().RestartGame();
+        //Die();
     }
 
     public void RestartGame()
