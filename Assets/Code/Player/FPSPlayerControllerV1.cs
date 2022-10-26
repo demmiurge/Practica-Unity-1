@@ -113,8 +113,10 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     private float m_MaxTime = 30;
     private bool m_TimerActive = false;
     public bool m_Paused;
+    public bool m_Dead;
 
     public static event Action<bool> OnPause;
+    public static event Action<bool> OnDie;
 
     bool m_Shooting = false;
 
@@ -145,6 +147,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_Time = m_MaxTime;
         
         m_Paused = false;
+        m_Dead = false;
     }
 
     public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
@@ -453,8 +456,9 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     void Kill()
     {
         m_Life = 0;
-        GameController.GetGameController().RestartGame();
-        Debug.Log("dead");
+        //GameController.GetGameController().RestartGame();
+        Die();
+
     }
 
     public void RestartGame()
@@ -503,6 +507,25 @@ public class FPSPlayerControllerV1 : MonoBehaviour
             m_AimLocked = true;
         }
         OnPause?.Invoke(m_Paused);
+    }
+
+    public void Die()
+    {
+        if (m_Dead)
+        {
+            m_Dead = false;
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            m_AimLocked = false;
+        }
+        else
+        {
+            m_Dead = true;
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+            m_AimLocked = true;
+        }
+        OnDie?.Invoke(m_Dead);
     }
 
     IEnumerator DestroyOnTime(GameObject Decal)
