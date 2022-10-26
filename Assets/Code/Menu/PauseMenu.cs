@@ -21,14 +21,15 @@ public class PauseMenu : MonoBehaviour
 
     private void OnDisable()
     {
-        FPSPlayerControllerV1.OnPause += Pause;
+        FPSPlayerControllerV1.OnPause -= Pause;
     }
 
     private void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
+        //DontDestroyOnLoad(this.gameObject);
         Time.timeScale = 1f;
         _time = 0.0f;
+        _pause = false;
     }
 
     void Update()
@@ -50,6 +51,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Pause(bool ispaused)
     {
+        Debug.Log("Arnalada" + ispaused);
         _pause = ispaused;
         if (ispaused)
         {
@@ -78,13 +80,14 @@ public class PauseMenu : MonoBehaviour
         m_PanelBackground.SetActive(false);
         m_HUD.SetActive(true);
         _pause = false;
+        GameController.GetGameController().GetPlayer().m_Paused = false;
         Time.timeScale = 1f;
         GameController.GetGameController().RestartGame();
     }
 
     public void OnExitClick()
     {
-        //m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
+
         m_MenuOptions.SetActive(false);
         SceneManager.LoadSceneAsync("Menu");
         //MusicPlayer.Instance.PlayFX("Buttons_menu_Back");

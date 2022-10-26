@@ -111,7 +111,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     private float m_Time;
     private float m_MaxTime = 30;
     private bool m_TimerActive = false;
-    private bool m_Paused;
+    public bool m_Paused;
 
     public static event Action<bool> OnPause;
 
@@ -238,7 +238,6 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         if(Input.GetKeyDown(m_Pause))
         {
             Pause();
-            Debug.Log("Pause");
         }
 
         // FOV control
