@@ -13,12 +13,12 @@ public class PauseMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        Player.OnPause += Pause;
+        //Player.OnPause += Pause;
     }
 
     private void OnDisable()
     {
-        Player.OnPause += Pause;
+        //Player.OnPause += Pause;
     }
 
     private void Start()
@@ -43,7 +43,7 @@ public class PauseMenu : MonoBehaviour
 
     public void Continue()
     {
-        GameObject.FindObjectOfType<Player>().Pause();
+        //GameObject.FindObjectOfType<Player>().Pause();
     }
 
     public void Pause(bool ispaused)
@@ -53,11 +53,11 @@ public class PauseMenu : MonoBehaviour
         {
             _time = 0.0f;
             menuPause.GetComponent<Animator>().SetBool("Pause", true);
-            MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
+            //MusicPlayer.Instance.PlayFX("Buttons_menu_SelectOption");
         }
         else
         {
-            OptionsClose();
+            //OptionsClose();
             menuPause.GetComponent<Animator>().SetBool("Pause", false);
             Time.timeScale = 1f;
         }
@@ -65,7 +65,7 @@ public class PauseMenu : MonoBehaviour
 
     public void ExitClick()
     {
-        SceneManager.LoadScene("MainMenu");
-        MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
+        //SceneManager.LoadScene("MainMenu");
+        //MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
     }
 }
