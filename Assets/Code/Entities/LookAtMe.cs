@@ -8,7 +8,7 @@ public class LookAtMe : MonoBehaviour
 
     void Start()
     {
-        if (!m_Target && GameObject.FindGameObjectWithTag("Player")) m_Target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (!m_Target && GameController.GetGameController().GetPlayer().transform) m_Target = GameController.GetGameController().GetPlayer().transform;
     }
 
     void LateUpdate()
