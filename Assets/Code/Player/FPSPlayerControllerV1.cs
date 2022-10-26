@@ -458,7 +458,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_Life = 0;
         //GameController.GetGameController().RestartGame();
         Die();
-
+        //m_Dead = true;
     }
 
     public void RestartGame()
@@ -469,6 +469,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         transform.position = m_InitialPosition;
         transform.rotation = m_InitialRotation;
         m_CharacterController.enabled = true;
+        m_Dead = false;
     }
 
     public void RecieveDamage(float Damage)
@@ -511,6 +512,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
 
     public void Die()
     {
+        Debug.Log("died");
         if (m_Dead)
         {
             m_Dead = false;
