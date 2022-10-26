@@ -1062,6 +1062,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
+      propertyPath: m_Aim
+      value: 
+      objectReference: {fileID: 1651770989}
+    - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
+      propertyPath: m_Score
+      value: 
+      objectReference: {fileID: 172477417}
+    - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
       propertyPath: m_Message
       value: 
       objectReference: {fileID: 1087861029}
@@ -1069,6 +1077,10 @@ PrefabInstance:
       propertyPath: m_PlayerHud
       value: 
       objectReference: {fileID: 1027376925}
+    - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
+      propertyPath: m_TimerText
+      value: 
+      objectReference: {fileID: 1101739031}
     - target: {fileID: 2144632579, guid: 7689b2d5def66f04eb3b0905d7b65084, type: 3}
       propertyPath: m_TextMeshPro
       value: 
@@ -3492,15 +3504,15 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &1105209095 stripped
+--- !u!114 &1101739031 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3107909816040030024, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
-  m_PrefabInstance: {fileID: 1435754991}
+  m_CorrespondingSourceObject: {fileID: 2922771879265805663, guid: 8aa5bccb4987e3d4cbe22c33570efe89, type: 3}
+  m_PrefabInstance: {fileID: 2922771878874895990}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ca99818f7d3c6549879a9f14c38fb82, type: 3}
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1153374925
@@ -5881,6 +5893,11 @@ Transform:
   m_Father: {fileID: 394149288}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!223 &1651770989 stripped
+Canvas:
+  m_CorrespondingSourceObject: {fileID: 5770275164725994044, guid: d2d059eb088e135458f0be4d7e263085, type: 3}
+  m_PrefabInstance: {fileID: 5770275165459703154}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1663277590
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7180,10 +7197,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1032985850, guid: 8aa5bccb4987e3d4cbe22c33570efe89, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 1105209095}
     - target: {fileID: 2922771879463375208, guid: 8aa5bccb4987e3d4cbe22c33570efe89, type: 3}
       propertyPath: m_Pivot.x
       value: 0

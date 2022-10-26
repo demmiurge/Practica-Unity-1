@@ -18,9 +18,11 @@ public class ShootingGallery : MonoBehaviour
     [Header("HUD")]
     [Space(1f)]
     public Canvas m_PlayerHud;
-    public TMP_Text m_TextMeshPro;
+    public TMP_Text m_Score;
+    public TMP_Text m_TimerText;
     public Canvas m_Message;
     public TMP_Text m_TextMessage;
+    public Canvas m_Aim;
 
     static ShootingGallery m_ShootingGallery;
     private bool m_Entered = false;
@@ -58,16 +60,30 @@ public class ShootingGallery : MonoBehaviour
 
     void ShowMessage()
     {
-
-        m_TextMeshPro.gameObject.SetActive(true);
+        m_Score.gameObject.SetActive(true);
+        m_TimerText.gameObject.SetActive(true);
         m_Message.gameObject.SetActive(true);
-
+        m_Aim.gameObject.SetActive(false);
 
     }
+
+    void TimeUp()
+    {
+        if(GameController.GetGameController().GetPlayer().GetTime() <= 0)
+        {
+            Debug.Log("Adeu");
+            for (int i = 0; i < m_TargetList.Count; i++)
+            {
+                m_TargetList[i].GetComponent<Animation>().Stop();
+            }
+        }
+    }
+
     public void ActivateShootingGallery()
     {
         //Debug.Log("Shooting Gallery");
         m_Message.gameObject.SetActive(false);
+        m_Aim.gameObject.SetActive(true);
         for (int i = 0; i < m_TargetList.Count; i++)
         {
             m_TargetList[i].GetComponent<Animation>().Play();

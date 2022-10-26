@@ -32,8 +32,7 @@ public class PlayerManager : MonoBehaviour
         lifeText.outlineWidth = 0.3f;
         lifeText.outlineColor = Color.black;
 
-        timerText.outlineWidth = 0.3f;
-        timerText.outlineColor = Color.black;
+       
     }
 
     // Update is called once per frame
@@ -45,12 +44,15 @@ public class PlayerManager : MonoBehaviour
         ammoText.text = "Ammo: " + l_Player.GetAmmo() + "/" + l_Player.m_MaxAmmo;
         shieldText.text = "Shield: " + l_Player.GetShield();
         lifeText.text = "Life: " + l_Player.GetLife();
-        timerText.text = "Timer: ";
+        timerText.text = "Timer: " +  l_Player.GetTime().ToString("0.0");
 
-        if(scoreText.IsActive())
+        if(scoreText.IsActive() && timerText.IsActive())
         {
             scoreText.outlineWidth = 0.3f;
             scoreText.outlineColor = Color.black;
+
+            timerText.outlineWidth = 0.3f;
+            timerText.outlineColor = Color.black;
         }
     }
 

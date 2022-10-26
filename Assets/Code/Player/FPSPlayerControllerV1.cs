@@ -106,6 +106,9 @@ public class FPSPlayerControllerV1 : MonoBehaviour
     Quaternion m_InitialRotation;
 
     private ShootingGallery m_Gallery;
+    private float m_Time;
+    private float m_MaxTime = 30;
+    private bool m_TimerActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -129,7 +132,7 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         m_InitialRotation = transform.rotation;
 
         //m_PoolOfElements = new PoolOfElements(25, m_Prefab);
-
+        m_Time = m_MaxTime;
     }
 
     public void SetNewRespawnPosition(Vector3 Position, Quaternion Rotation)
@@ -211,7 +214,17 @@ public class FPSPlayerControllerV1 : MonoBehaviour
         if(Input.GetKeyDown(m_ShootingGalleryCode))
         {
             ShootingGallery.GetShootingGallery().ActivateShootingGallery();
-            Debug.Log("Activao");
+            m_TimerActive = true;
+        }
+
+        if(m_TimerActive)
+        {
+            m_Time -= Time.deltaTime;
+        }
+
+        if(m_Time == 0)
+        {
+            m_TimerActive=false;
         }
 
         // FOV control
@@ -326,6 +339,11 @@ public class FPSPlayerControllerV1 : MonoBehaviour
             l_Decal.SetActive(true);
             StartCoroutine(DestroyOnTime(l_Decal)); 
         }
+    }
+
+    public float GetTime()
+    {
+        return m_Time;
     }
 
     public int GetAmmo()
