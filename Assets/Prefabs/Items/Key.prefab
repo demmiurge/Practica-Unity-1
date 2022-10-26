@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 513665601106668019}
+  - component: {fileID: 1525944281}
+  - component: {fileID: 4980237675899942079}
   m_Layer: 0
-  m_Name: UbicationKey
-  m_TagString: Untagged
+  m_Name: UpKey
+  m_TagString: Collectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -31,6 +33,32 @@ Transform:
   m_Father: {fileID: 513665601750523455}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!135 &1525944281
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513665601106668018}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.5
+  m_Center: {x: 0, y: -1, z: 0}
+--- !u!114 &4980237675899942079
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513665601106668018}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc6c64e10b77a8846addf62e0930eb1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_WhatItemAmI: {fileID: 11400000, guid: 44790c7300285d0418a5dfe1cf7342bc, type: 2}
 --- !u!1 &513665601750523454
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7638359018633463023}
   m_Layer: 0
-  m_Name: KeyPoint
+  m_Name: BlueKey
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

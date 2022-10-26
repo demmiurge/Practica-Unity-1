@@ -10,6 +10,7 @@ public class ItemCollector : MonoBehaviour
     {
         if (other.tag == "Collectable")
         {
+            other.gameObject.SetActive(false);
             CollectibleItem l_Item = other.GetComponent<ItemType>().GetItem();
             m_Inventory.AddItemOnInventory(l_Item);
         }

@@ -86,7 +86,6 @@ public class DoorController : MonoBehaviour
 
     void OpenByKey()
     {
-        Debug.Log("ARNAL ME LA CHUPA "+ InDistance());
         if (InDistance())
         {
             Inventory l_Inventory = m_Player.GetComponent<Inventory>();

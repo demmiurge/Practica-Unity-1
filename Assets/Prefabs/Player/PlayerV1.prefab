@@ -370,8 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3497c5bfbf4ddd44bbed46d48e63fd5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_CollectibleItem:
-  - {fileID: 11400000, guid: 44790c7300285d0418a5dfe1cf7342bc, type: 2}
+  m_CollectibleItem: []
 --- !u!114 &327246622
 MonoBehaviour:
   m_ObjectHideFlags: 0
