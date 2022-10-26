@@ -10,19 +10,9 @@ public class PauseMenu : MonoBehaviour
     public GameObject m_HUD;
     public GameObject m_Aim;
 
-    static PauseMenu m_PauseMenu = null;
-
     float _time;
     bool _pause;
 
-    public static PauseMenu GetPauseMenu()
-    {
-        if (m_PauseMenu == null)
-        {
-            m_PauseMenu = new GameObject("Pause").AddComponent<PauseMenu>();
-        }
-        return m_PauseMenu;
-    }
 
     private void OnEnable()
     {
@@ -36,8 +26,7 @@ public class PauseMenu : MonoBehaviour
 
     private void Start()
     {
-        //DontDestroyOnLoad(this.gameObject);
-        m_MenuOptions.SetActive(false);
+        DontDestroyOnLoad(this.gameObject);
         Time.timeScale = 1f;
         _time = 0.0f;
     }
@@ -87,12 +76,15 @@ public class PauseMenu : MonoBehaviour
         m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
         m_MenuOptions.SetActive(false);
         m_PanelBackground.SetActive(false);
-        SceneManager.LoadScene("Level_One");
+        m_HUD.SetActive(true);
+        _pause = false;
+        Time.timeScale = 1f;
+        GameController.GetGameController().RestartGame();
     }
 
     public void OnExitClick()
     {
-        m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
+        //m_PanelBackground.GetComponent<Animation>().Play("Menu_back_out");
         m_MenuOptions.SetActive(false);
         SceneManager.LoadSceneAsync("Menu");
         //MusicPlayer.Instance.PlayFX("Buttons_menu_Back");
