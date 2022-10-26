@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class LevelOneController : MonoBehaviour
 {
-
     public Transform m_DetectionPointLevel;
     float m_DetectionDistance = 1f;
     void Update()
