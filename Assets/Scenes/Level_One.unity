@@ -4420,31 +4420,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.8127003
+      value: -50.775
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.41198158
+      value: 1.3380184
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -8.3868885
+      value: -23.376507
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0.8660257
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: 0.4999996
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -4452,7 +4452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 3107909816040030027, guid: 0557f684f0ff418498b6153ba16c4f62, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -6695,7 +6695,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Welcome to the shooting gallery! \nIn order to pass to the next level,
-    you need to score 1500 points.\nGood Luck!\nPress L to Start\n"
+    you need to score 1000 points.\nGood Luck!\nPress L to Start\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7c009613d4fec9a43bc05f387512c5e1, type: 2}
   m_sharedMaterial: {fileID: -7586474137994808127, guid: 7c009613d4fec9a43bc05f387512c5e1, type: 2}

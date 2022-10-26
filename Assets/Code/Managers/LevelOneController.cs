@@ -11,7 +11,7 @@ public class LevelOneController : MonoBehaviour
     {
         if(DetectCollision())
         {
-            SceneManager.LoadSceneAsync("Level_Two");
+            SceneManager.LoadScene("Level_Two");
         }
     }
 
