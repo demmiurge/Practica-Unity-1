@@ -5261,7 +5261,7 @@ MonoBehaviour:
   m_AnimationDoor: {fileID: 2567793815653688207}
   m_AnimationNameToOpenDoor: {fileID: 7400000, guid: 3d924bbd4e4b5db41bfdb7aba8901f08, type: 2}
   m_AnimationNameToCloseDoor: {fileID: 7400000, guid: a3cac97f542d91a41b9a8d932cd3f4f6, type: 2}
-  m_OpeningForm: 1
+  m_OpeningForm: 0
   m_ChangeWayToOpen: 0
   m_ActivationDistance: 3
   m_PointsRequired: 1000

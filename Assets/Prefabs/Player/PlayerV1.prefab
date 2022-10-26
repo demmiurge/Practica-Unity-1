@@ -298,7 +298,7 @@ MonoBehaviour:
   m_RunKeyCode: 304
   m_DebugLockAngleKeyCode: 105
   m_DebugLockKeyCode: 111
-  m_ShootingGalleryCode: 271
+  m_ShootingGalleryCode: 108
   m_Pause: 112
   m_GeneralCamera: {fileID: 7033658126661741783}
   m_WeaponCamera: {fileID: 3107909816132282332}

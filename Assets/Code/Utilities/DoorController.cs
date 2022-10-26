@@ -48,7 +48,7 @@ public class DoorController : MonoBehaviour
     {
         m_IsOpen = false;
         //m_Player = GameObject.FindGameObjectWithTag("Player");
-        //m_Player = GameController.GetGameController().GetPlayer();
+        m_Player = GameController.GetGameController().GetPlayer();
     }
 
     // Update is called once per frame
@@ -80,14 +80,13 @@ public class DoorController : MonoBehaviour
 
     void OpenByPoints()
     {
-        if (PlayerManager.instance.m_Score >= 1000)
-        {
-            GateState(true);
-        }
+        if (PlayerManager.instance.m_Score >= m_PointsRequired)
+            m_OpeningForm = m_ChangeWayToOpen;
     }
 
     void OpenByKey()
     {
+        Debug.Log("ARNAL ME LA CHUPA "+ InDistance());
         if (InDistance())
         {
             Inventory l_Inventory = m_Player.GetComponent<Inventory>();
