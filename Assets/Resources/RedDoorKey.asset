@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ItemName: Red door key
   m_IsStackable: 1
-  m_Amount: 1
+  m_Amount: 99
